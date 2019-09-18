@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar color="grey lighten-3">
+  <v-toolbar color="#e5f9ff">
     <v-btn
       v-if="responsive"
       icon

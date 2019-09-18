@@ -28,7 +28,7 @@
               class="subtitle-1"
               style="color: black; text-align: center;"
             >
-              Template Prefeitura
+              Template
             </v-list-item-title>
             <v-form
               ref="form"

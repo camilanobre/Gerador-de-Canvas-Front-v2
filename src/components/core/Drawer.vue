@@ -31,7 +31,9 @@
           class="subtitle-1"
           style="text-align:center"
         >
-          Template Prefeitura
+          <v-icon color="tertiary">mdi-emoticon-devil</v-icon>
+          Gerador de Canvas <v-icon color="tertiary">
+            mdi-emoticon-cool</v-icon>
         </v-list>
         <v-list-item-group color="primary">
           <div
@@ -68,18 +70,36 @@ import { mapMutations, mapState } from 'vuex'
 export default {
   data: () => ({
     perfil: '',
-    logo: './img/logo-prefeitura1.png',
+    logo: './img/idea.png',
     links: [
       {
         to: '/',
-        icon: 'mdi-monitor',
-        text: 'Home',
+        icon: 'mdi-home-circle',
+        text: 'Página Inicial',
         divider: true
       },
       {
-        to: '/pagina1',
-        icon: 'mdi-star',
-        text: 'Pagina 1'
+        to: '/iniciarProjeto',
+        icon: 'mdi-lightbulb-on-outline',
+        text: 'Iniciar um projeto',
+        divider: true
+      },
+      {
+        to: '/meusProjetos',
+        icon: 'mdi-puzzle',
+        text: 'Meus Projetos',
+        divider: true
+      },
+      {
+        to: '/comoCriar',
+        icon: 'mdi-help',
+        text: 'Como criar o Canvas?',
+        divider: true
+      },
+      {
+        to: '/sobre',
+        icon: 'mdi-human-greeting',
+        text: 'Sobre nós'
       }
     ],
     responsive: false

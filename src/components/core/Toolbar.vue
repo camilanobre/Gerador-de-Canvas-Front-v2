@@ -1,5 +1,7 @@
 <template>
-  <v-toolbar color="#e5f9ff">
+  <v-toolbar
+    style="background: background-color: #ffffff;
+background-image: linear-gradient(0deg, #ffffff 0%, #E2FFFA 100%)">
     <v-btn
       v-if="responsive"
       icon

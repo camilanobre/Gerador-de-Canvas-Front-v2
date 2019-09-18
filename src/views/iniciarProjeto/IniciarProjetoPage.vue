@@ -9,7 +9,7 @@
         sm12
         lg12>
         <material-card
-          color="primary"
+          color="deep-deep-purple lighten-1"
           title="Cadastro de Canvas">
           <v-form
             ref="form"
@@ -22,15 +22,23 @@
                 <v-stepper-header>
                   <v-stepper-step
                     :complete="passo > 1"
-                    step="1">Primeira Etapa</v-stepper-step>
+                    step="1">Primeira Etapa
+                    </v-stepper-step>
                   <v-divider />
                   <v-stepper-step
                     :complete="passo > 2"
-                    step="2">Segunda Etapa</v-stepper-step>
+                    step="2">Segunda Etapa
+                    </v-stepper-step>
                   <v-divider />
                   <v-stepper-step
                     :complete="passo > 3"
-                    step="3">Terceira Etapa</v-stepper-step>
+                    step="3">Terceira Etapa
+                    </v-stepper-step>
+                    <v-divider />
+                    <v-stepper-step
+                    :complete="passo > 4"
+                    step="4">Etapa Final
+                    </v-stepper-step>
                 </v-stepper-header>
                 <v-stepper-items>
                   <!-- primeiro passo -->
@@ -58,10 +66,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="blue darken-2"
+                              color="deep-purple lighten-1"
                               icon
                               @click="openModalProposta()">
-                              <v-icon>mdi-comment-question-outline</v-icon>
+                              <v-icon>mdi-cloud-question</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -77,48 +85,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="blue darken-2"
+                              color="deep-purple lighten-1"
                               icon
                               @click="openModalSegmento()">
-                              <v-icon>mdi-comment-question-outline</v-icon>
-                            </v-btn>
-                          </template>
-                        </v-textarea>
-                      </v-flex>
-                      <v-flex xs12>
-                        <v-textarea
-                          label="Relacionamento com o Clientes"
-                          placeholder="Informe o seu relacionamento de clientes"
-                          hint="Alguma dúvida? Clica no ícone de interrogação!"
-                        >
-                          <template v-slot:append-outer>
-                            <v-btn
-                              class="ma-2"
-                              tile
-                              large
-                              color="blue darken-2"
-                              icon
-                              @click="openModalRelacionamento()">
-                              <v-icon>mdi-comment-question-outline</v-icon>
-                            </v-btn>
-                          </template>
-                        </v-textarea>
-                      </v-flex>
-                      <v-flex xs12>
-                        <v-textarea
-                          label="Canais de Distribuição"
-                          placeholder="Informe os seus canais de distribuição"
-                          hint="Alguma dúvida? Clica no ícone de interrogação!"
-                        >
-                          <template v-slot:append-outer>
-                            <v-btn
-                              class="ma-2"
-                              tile
-                              large
-                              color="blue darken-2"
-                              icon
-                              @click="openModalCanal()">
-                              <v-icon>mdi-comment-question-outline</v-icon>
+                              <v-icon>mdi-cloud-question</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -138,6 +108,57 @@
                       height="100%">
                       <v-flex xs12>
                         <v-textarea
+                          label="Relacionamento com o Clientes"
+                          placeholder="Informe o seu relacionamento de clientes"
+                          hint="Alguma dúvida? Clica no ícone de interrogação!"
+                        >
+                          <template v-slot:append-outer>
+                            <v-btn
+                              class="ma-2"
+                              tile
+                              large
+                              color="deep-purple lighten-1"
+                              icon
+                              @click="openModalRelacionamento()">
+                              <v-icon>mdi-cloud-question</v-icon>
+                            </v-btn>
+                          </template>
+                        </v-textarea>
+                      </v-flex>
+                      <v-flex xs12>
+                        <v-textarea
+                          label="Canais de Distribuição"
+                          placeholder="Informe os seus canais de distribuição"
+                          hint="Alguma dúvida? Clica no ícone de interrogação!"
+                        >
+                          <template v-slot:append-outer>
+                            <v-btn
+                              class="ma-2"
+                              tile
+                              large
+                              color="deep-purple lighten-1"
+                              icon
+                              @click="openModalCanal()">
+                              <v-icon>mdi-cloud-question</v-icon>
+                            </v-btn>
+                          </template>
+                        </v-textarea>
+                      </v-flex>
+                     </v-card>
+                    <v-btn
+                      color="primary"
+                      @click="passo = 3">Continuar</v-btn>
+                    <v-btn
+                      color="red darken-1"
+                      @click="passo = 1">Voltar</v-btn>
+                  </v-stepper-content>
+                  <!-- passo três -->
+                  <v-stepper-content step="3">
+                    <v-card
+                      class="mb-5"
+                      height="100%">
+                      <v-flex xs12>
+                        <v-textarea
                           label="Atividades Chaves"
                           placeholder="Informe as suas atividades chave"
                           hint="Alguma dúvida? Clica no ícone de interrogação!"
@@ -147,10 +168,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="blue darken-2"
+                              color="deep-purple lighten-1"
                               icon
                               @click="openModalAtividades()">
-                              <v-icon>mdi-comment-question-outline</v-icon>
+                              <v-icon>mdi-cloud-question</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -166,10 +187,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="blue darken-2"
+                              color="deep-purple lighten-1"
                               icon
                               @click="openModalRecursos()">
-                              <v-icon>mdi-comment-question-outline</v-icon>
+                              <v-icon>mdi-cloud-question</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -185,10 +206,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="blue darken-2"
+                              color="deep-purple lighten-1"
                               icon
                               @click="openModalParceiros()">
-                              <v-icon>mdi-comment-question-outline</v-icon>
+                              <v-icon>mdi-cloud-question</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -196,12 +217,13 @@
                     </v-card>
                     <v-btn
                       color="primary"
-                      @click="passo = 3">Continuar</v-btn>
+                      @click="passo = 4">Continuar</v-btn>
                     <v-btn
                       color="red darken-1"
-                      @click="passo = 1">Voltar</v-btn>
+                      @click="passo = 2">Voltar</v-btn>
                   </v-stepper-content>
-                  <v-stepper-content step="3">
+                  
+                  <v-stepper-content step="4">
                     <v-card
                       class="mb-5"
                       height="100%">
@@ -216,10 +238,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="blue darken-2"
+                              color="deep-purple lighten-1"
                               icon
                               @click="openModalReceita()">
-                              <v-icon>mdi-comment-question-outline</v-icon>
+                              <v-icon>mdi-cloud-question</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -235,10 +257,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="blue darken-2"
+                              color="deep-purple lighten-1"
                               icon
                               @click="openModalCustos()">
-                              <v-icon>mdi-comment-question-outline</v-icon>
+                              <v-icon>mdi-cloud-question</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -249,7 +271,7 @@
                       to="/">Cancelar</v-btn>
                     <v-btn
                       color="red darken-1"
-                      @click="passo = 2">Voltar</v-btn>
+                      @click="passo = 3">Voltar</v-btn>
                     <v-btn
                       color="success"
                       @click="passo = 2">Cadastrar</v-btn>

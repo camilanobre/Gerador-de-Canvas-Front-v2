@@ -7,6 +7,8 @@
     persistent
     mobile-break-point="991"
     width="260"
+    style="background: background-color: #ffffff;
+    background: linear-gradient(to right, #7202bb 2%, #3264f5 82%);, font-color: white"
   >
     <v-layout
       class="fill-height"
@@ -31,11 +33,9 @@
           class="subtitle-1"
           style="text-align:center"
         >
-          <v-icon color="tertiary">mdi-emoticon-devil</v-icon>
-          Gerador de Canvas <v-icon color="tertiary">
-            mdi-emoticon-cool</v-icon>
+         Meu Canvas
         </v-list>
-        <v-list-item-group color="primary">
+        <v-list-item-group color="purple lighten-5">
           <div
             v-for="(item, i) in links"
             :key="i"
@@ -123,9 +123,9 @@ export default {
   },
   created () {
     this.getUsuarioStorage()
-    if (!this.usuario.perfilSuper) {
+    /*if (!this.usuario.perfilSuper) {
       this.validaPerfil()
-    }
+    }*/
   },
   mounted () {
     this.onResponsiveInverted()
@@ -146,31 +146,6 @@ export default {
     getUsuarioStorage () {
       let usuario = JSON.parse(localStorage.getItem('usuario'))
       this.usuario = usuario.value
-    },
-    validaPerfil () {
-      let ids = []
-      for (let i = 0; i < this.links.length; i++) {
-        if (!this.links[i].title && this.links[i].text !== 'Sair') {
-          if (!this.verificarSeExiste(this.links[i].text)) {
-            ids.push(i)
-          }
-        }
-      }
-      this.remontaMenu(ids)
-    },
-    verificarSeExiste (item) {
-      let objJsonStr = JSON.parse(atob(this.usuario.moduloDescricaoFuncao))
-      let qtd = Object.keys(objJsonStr).length
-      let existe = false
-      for (let i = 0; i < qtd; i++) {
-        if (decodeURIComponent(escape(objJsonStr[i].DescricaoModulo)) === item) {
-          existe = true
-          break
-        } else {
-          existe = false
-        }
-      }
-      return existe
     },
     remontaMenu (ids) {
       let menuAntigo = this.links

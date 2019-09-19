@@ -9,7 +9,7 @@
         sm12
         lg12>
         <material-card
-          color="deep-deep-purple lighten-1"
+          color="deep-purple"
           title="Cadastro de Canvas">
           <v-form
             ref="form"
@@ -22,23 +22,24 @@
                 <v-stepper-header>
                   <v-stepper-step
                     :complete="passo > 1"
+                    color="indigo darken-4"
                     step="1">Primeira Etapa
-                    </v-stepper-step>
+                  </v-stepper-step>
                   <v-divider />
                   <v-stepper-step
                     :complete="passo > 2"
                     step="2">Segunda Etapa
-                    </v-stepper-step>
+                  </v-stepper-step>
                   <v-divider />
                   <v-stepper-step
                     :complete="passo > 3"
                     step="3">Terceira Etapa
-                    </v-stepper-step>
-                    <v-divider />
-                    <v-stepper-step
+                  </v-stepper-step>
+                  <v-divider />
+                  <v-stepper-step
                     :complete="passo > 4"
                     step="4">Etapa Final
-                    </v-stepper-step>
+                  </v-stepper-step>
                 </v-stepper-header>
                 <v-stepper-items>
                   <!-- primeiro passo -->
@@ -66,10 +67,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="deep-purple lighten-1"
+                              color="indigo"
                               icon
                               @click="openModalProposta()">
-                              <v-icon>mdi-cloud-question</v-icon>
+                              <v-icon>mdi-help-circle</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -85,20 +86,20 @@
                               class="ma-2"
                               tile
                               large
-                              color="deep-purple lighten-1"
+                              color="indigo"
                               icon
                               @click="openModalSegmento()">
-                              <v-icon>mdi-cloud-question</v-icon>
+                              <v-icon>mdi-help-circle</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
                       </v-flex>
                     </v-card>
                     <v-btn
-                      color="primary"
+                      style="background-image: linear-gradient(to right, #7202bb 51%, #3264f5 100%)"
                       @click="passo = 2">Continuar</v-btn>
                     <v-btn
-                      color="red darken-1"
+                      style="background-image: linear-gradient(to right, #3264f5 51%, #7202bb 100%)"
                       to="/">Cancelar</v-btn>
                   </v-stepper-content>
                   <!-- passo dois -->
@@ -117,10 +118,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="deep-purple lighten-1"
+                              color="indigo"
                               icon
                               @click="openModalRelacionamento()">
-                              <v-icon>mdi-cloud-question</v-icon>
+                              <v-icon>mdi-help-circle</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -136,20 +137,20 @@
                               class="ma-2"
                               tile
                               large
-                              color="deep-purple lighten-1"
+                              color="indigo"
                               icon
                               @click="openModalCanal()">
-                              <v-icon>mdi-cloud-question</v-icon>
+                              <v-icon>mdi-help-circle</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
                       </v-flex>
-                     </v-card>
+                    </v-card>
                     <v-btn
-                      color="primary"
+                      style="background-image: linear-gradient(to right, #7202bb 51%, #3264f5 100%)"
                       @click="passo = 3">Continuar</v-btn>
                     <v-btn
-                      color="red darken-1"
+                      style="background-image: linear-gradient(to right, #3264f5 51%, #7202bb 100%)"
                       @click="passo = 1">Voltar</v-btn>
                   </v-stepper-content>
                   <!-- passo três -->
@@ -168,10 +169,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="deep-purple lighten-1"
+                              color="indigo"
                               icon
                               @click="openModalAtividades()">
-                              <v-icon>mdi-cloud-question</v-icon>
+                              <v-icon>mdi-help-circle</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -187,10 +188,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="deep-purple lighten-1"
+                              color="indigo"
                               icon
                               @click="openModalRecursos()">
-                              <v-icon>mdi-cloud-question</v-icon>
+                              <v-icon>mdi-help-circle</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -206,23 +207,23 @@
                               class="ma-2"
                               tile
                               large
-                              color="deep-purple lighten-1"
+                              color="indigo"
                               icon
                               @click="openModalParceiros()">
-                              <v-icon>mdi-cloud-question</v-icon>
+                              <v-icon>mdi-help-circle</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
                       </v-flex>
                     </v-card>
                     <v-btn
-                      color="primary"
+                      style="background-image: linear-gradient(to right, #7202bb 51%, #3264f5 100%)"
                       @click="passo = 4">Continuar</v-btn>
                     <v-btn
-                      color="red darken-1"
+                      style="background-image: linear-gradient(to right, #3264f5 51%, #7202bb 100%)"
                       @click="passo = 2">Voltar</v-btn>
                   </v-stepper-content>
-                  
+
                   <v-stepper-content step="4">
                     <v-card
                       class="mb-5"
@@ -238,10 +239,10 @@
                               class="ma-2"
                               tile
                               large
-                              color="deep-purple lighten-1"
+                              color="indigo"
                               icon
                               @click="openModalReceita()">
-                              <v-icon>mdi-cloud-question</v-icon>
+                              <v-icon>mdi-help-circle</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
@@ -257,23 +258,23 @@
                               class="ma-2"
                               tile
                               large
-                              color="deep-purple lighten-1"
+                              color="indigo"
                               icon
                               @click="openModalCustos()">
-                              <v-icon>mdi-cloud-question</v-icon>
+                              <v-icon>mdi-help-circle</v-icon>
                             </v-btn>
                           </template>
                         </v-textarea>
                       </v-flex>
                     </v-card>
                     <v-btn
-                      color="primary"
+                      style="background-image: linear-gradient(to right, #7202bb 51%, #3264f5 100%)"
                       to="/">Cancelar</v-btn>
                     <v-btn
-                      color="red darken-1"
+                      style="background-image: linear-gradient(to right, #3264f5 51%, #7202bb 100%)"
                       @click="passo = 3">Voltar</v-btn>
                     <v-btn
-                      color="success"
+                      style="background-image: linear-gradient(to right,  #3264f5 20%, #7202bb 51%, #3264f5 100%)"
                       @click="passo = 2">Cadastrar</v-btn>
                   </v-stepper-content>
                 </v-stepper-items>
@@ -301,12 +302,12 @@
         max-width="600">
         <v-card>
           <v-card-title
-            class="headline grey lighten-2"
+            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
             primary-title
           >
             O que é a Proposta de Valor?
           </v-card-title>
-          <v-card-text style="text-align: justify">
+          <v-card-text style="text-align: justify; padding-top: 15px;">
             Nesta parte são descritas as soluções que a empresa propõe a oferecer para resolver os problemas de seus clientes. <v-spacer/>
             Que valor será entregue para o segmento de clientes?
             Quais são os problemas dos clientes que a empresa ajuda a resolver?
@@ -315,7 +316,7 @@
           </v-card-text>
           <v-divider/>
           <v-btn
-            color="success"
+            color="deep-purple darken-4"
             text
             @click="modalProposta = false">
             Ok, entendi!
@@ -328,19 +329,19 @@
         max-width="600">
         <v-card>
           <v-card-title
-            class="headline grey lighten-2"
+            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
             primary-title
           >
             O que é Segmento de Clientes?
           </v-card-title>
-          <v-card-text style="text-align: justify">
+          <v-card-text style="text-align: justify; padding-top: 15px;">
             Seus clientes podem ser pessoas físicas e/ou empresas e, se necessário,
             você pode trabalhar com mais de um público-alvo. Lembre-se de agrupar os clientes com o mesmo perfil.  <v-spacer/>
             Para quem está sendo criado valor? Quem são os clientes mais importantes?
           </v-card-text>
           <v-divider/>
           <v-btn
-            color="success"
+            color="deep-purple darken-4"
             text
             @click="modalSegmento = false">
             Ok, entendi!
@@ -353,12 +354,12 @@
         max-width="600">
         <v-card>
           <v-card-title
-            class="headline grey lighten-2"
+            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
             primary-title
           >
             O que é Relacionamento com o Cliente?
           </v-card-title>
-          <v-card-text style="text-align: justify">
+          <v-card-text style="text-align: justify; padding-top: 15px;">
             Aqui, você precisa definir se o seu atendimento será por meio de uma página de perguntas e respostas,
             interação humana, chatbot, comunidades no Facebook etc. <v-spacer/>
             Que tipo de relacionamento cada segmento de clientes espera de você?
@@ -366,7 +367,7 @@
           </v-card-text>
           <v-divider/>
           <v-btn
-            color="success"
+            color="deep-purple darken-4"
             text
             @click="modalRelacionamento = false">
             Ok, entendi!
@@ -379,18 +380,18 @@
         max-width="600">
         <v-card>
           <v-card-title
-            class="headline grey lighten-2"
+            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
             primary-title
           >
             O que são as Atividades Chave?
           </v-card-title>
-          <v-card-text style="text-align: justify">
+          <v-card-text style="text-align: justify; padding-top: 15px;">
             As atividades-chave são aquelas essenciais para manter a empresa funcionando e entregando todo o valor prometido. <v-spacer/>
             Alguns exemplos são: marketing, gerenciamento de redes sociais, criação de conteúdo audiovisual etc.
           </v-card-text>
           <v-divider/>
           <v-btn
-            color="success"
+            color="deep-purple darken-4"
             text
             @click="modalAtividades = false">
             Ok, entendi!
@@ -403,12 +404,12 @@
         max-width="600">
         <v-card>
           <v-card-title
-            class="headline grey lighten-2"
+            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
             primary-title
           >
             O que são os Canais de Distribuição?
           </v-card-title>
-          <v-card-text style="text-align: justify">
+          <v-card-text style="text-align: justify; padding-top: 15px;">
             Agora que você já sabe o que entrega e para quem entrega, chegou a hora de definir COMO você entrega. <v-spacer/>
             Como o cliente compra e recebe o produto/serviço?
             Em quais canais você pretende atuar para encaminhar vendas e solucionar eventuais problemas do consumidor em relação à sua empresa?<v-spacer/>
@@ -416,7 +417,7 @@
           </v-card-text>
           <v-divider/>
           <v-btn
-            color="success"
+            color="deep-purple darken-4"
             text
             @click="modalCanal = false">
             Ok, entendi!
@@ -429,12 +430,12 @@
         max-width="600">
         <v-card>
           <v-card-title
-            class="headline grey lighten-2"
+            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
             primary-title
           >
             O que são os Recursos Chave?
           </v-card-title>
-          <v-card-text style="text-align: justify">
+          <v-card-text style="text-align: justify; padding-top: 15px;">
             Os recursos principais dizem respeito, basicamente, a tudo aquilo que a sua operação necessita para realizar as atividades-chave.
             Eles podem ser financeiros, físicos ou até humanos. <v-spacer/>
             <strong
@@ -444,7 +445,7 @@
           </v-card-text>
           <v-divider/>
           <v-btn
-            color="success"
+            color="deep-purple darken-4"
             text
             @click="modalRecursos = false">
             Ok, entendi!
@@ -457,12 +458,12 @@
         max-width="600">
         <v-card>
           <v-card-title
-            class="headline grey lighten-2"
+            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
             primary-title
           >
             O que são os Parceiros Chave?
           </v-card-title>
-          <v-card-text style="text-align: justify">
+          <v-card-text style="text-align: justify; padding-top: 15px;">
             As parcerias principais são alianças de negócio que você fará com fornecedores e outros parceiros. <v-spacer/>
             Quais são seus principais fornecedores?
             Quais das atividades-chave são executadas por parceiros?
@@ -476,7 +477,7 @@
           </v-card-text>
           <v-divider/>
           <v-btn
-            color="success"
+            color="deep-purple darken-4"
             text
             @click="modalParceiros = false">
             Ok, entendi!
@@ -489,12 +490,12 @@
         max-width="600">
         <v-card>
           <v-card-title
-            class="headline grey lighten-2"
+            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
             primary-title
           >
             O que é a Fonte de Receita?
           </v-card-title>
-          <v-card-text style="text-align: justify">
+          <v-card-text style="text-align: justify; padding-top: 15px;">
             Como a sua empresa gera receita? Esta é a pergunta a ser respondida aqui. Dependendo do modelo de negócios,
             você pode ter diversas fontes de receita.<v-spacer/>
             Por exemplo: “minha empresa gera receita vendendo produtos e prestando consultorias sobre o mercado”
@@ -502,7 +503,7 @@
           </v-card-text>
           <v-divider/>
           <v-btn
-            color="success"
+            color="deep-purple darken-4"
             text
             @click="modalReceita = false">
             Ok, entendi!
@@ -515,19 +516,19 @@
         max-width="600">
         <v-card>
           <v-card-title
-            class="headline grey lighten-2"
+            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
             primary-title
           >
             O que é a Estrutura de Custos?
           </v-card-title>
-          <v-card-text style="text-align: justify">
+          <v-card-text style="text-align: justify; padding-top: 15px;">
             Aqui, você preencherá todos os custos relevantes necessários para o seu modelo de negócios funcionar. <v-spacer/>
             Esses custos podem ser fixos ou variáveis (aluguel, softwares, salários, manutenção de maquinaria,
             campanhas de marketing etc).
           </v-card-text>
           <v-divider/>
           <v-btn
-            color="success"
+            color="deep-purple darken-4"
             text
             @click="modalCustos = false">
             Ok, entendi!
@@ -586,7 +587,10 @@ export default {
     openModalCustos () {
       this.modalCustos = true
     }
-
   }
 }
 </script>
+
+<style scoped>
+
+</style>

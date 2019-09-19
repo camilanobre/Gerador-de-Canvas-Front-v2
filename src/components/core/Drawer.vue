@@ -8,7 +8,7 @@
     mobile-break-point="991"
     width="260"
     style="background: background-color: #ffffff;
-    background: linear-gradient(to right, #7202bb 2%, #3264f5 82%);, font-color: white"
+    background-image: linear-gradient(to bottom, #7202bb, #682ccb, #5b42db, #4a54e8, #3264f5);, font-color: white"
   >
     <v-layout
       class="fill-height"
@@ -33,7 +33,7 @@
           class="subtitle-1"
           style="text-align:center"
         >
-         Meu Canvas
+          Meu Canvas
         </v-list>
         <v-list-item-group color="purple lighten-5">
           <div
@@ -123,9 +123,6 @@ export default {
   },
   created () {
     this.getUsuarioStorage()
-    /*if (!this.usuario.perfilSuper) {
-      this.validaPerfil()
-    }*/
   },
   mounted () {
     this.onResponsiveInverted()
@@ -167,3 +164,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+.theme--light.v-list{
+  color: #fff
+}
+.theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled){
+  color: #fff !important
+}
+</style>

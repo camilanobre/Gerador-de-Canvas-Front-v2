@@ -66,4 +66,7 @@ html {
   margin-top: 100px;
   font-size: 16px;
 }
+.v-application{
+  font-family: 'Poppins', sans-serif;
+}
 </style>

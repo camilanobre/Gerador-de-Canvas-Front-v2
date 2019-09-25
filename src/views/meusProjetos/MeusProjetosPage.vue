@@ -33,13 +33,14 @@
             :headers="headers"
             :items="canvas"
             :search="search"
-            :pagination.sync="pagination"
-            :rows-per-page-text="textoPaginacao"
+            :options.sync="pagination"
+            :items-per-page-text="textoPaginacao"
             hide-default-footer
             class="elevation-1"
           >
-            <template v-slot:items="props">
+            <!-- <template v-slot:items="props">
               <td> {{ props.item.nomeProjeto }}</td>
+              <td>teste</td>
               <td class="text-xs-center">
                 <v-btn
                   color="info"
@@ -73,6 +74,34 @@
                   </template>
                 </v-tooltip>
               </td>
+            </template> -->
+            <template v-slot:item.edit="{ item }">
+              <v-btn
+                color="info"
+                @click="getCanvasEdit(item)"
+              >
+                <v-icon left>mdi-pencil-circle</v-icon>
+                Editar
+              </v-btn>
+            </template>
+            <template v-slot:item.delete="{ item }">
+              <v-btn
+                color="error"
+                @click="openModalDelete(item.nomeProjeto, item.idCanvas)"
+              >
+                <v-icon left>mdi-delete-circle</v-icon>
+                Excluir
+              </v-btn>
+            </template>
+            <template v-slot:item.view="{ item }">
+              <v-btn
+                fab
+                small
+                color="red darken-1"
+                @click="getCanvasView(item)"
+              >
+                <v-icon>mdi-magnify</v-icon>
+              </v-btn>
             </template>
             <template v-slot:no-data>
               <v-alert
@@ -117,14 +146,12 @@
             <v-spacer/>
             <v-btn
               color="green darken-1"
-              flat="flat"
               @click="deletarTitular(idCanvas)"
             >
               Sim
             </v-btn>
             <v-btn
               color="red darken-1"
-              flat="flat"
               @click="modalDelete = false"
             >
               Não
@@ -132,7 +159,7 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-      <v-snackbar
+      <!-- <v-snackbar
         :timeout="timeout"
         v-model="snackbarError"
         color="warning"
@@ -145,7 +172,7 @@
         >
           <v-icon left>mdi-close-circle</v-icon>
         </v-btn>
-      </v-snackbar>
+      </v-snackbar> -->
     </v-layout>
   </v-container>
 </template>
@@ -157,12 +184,12 @@ export default {
       textoPaginacao: 'Exibir',
       modalEdit: false,
       modalDelete: false,
-      valid: true,
+      // valid: true,
       pagination: {
         descending: false,
         page: 1,
         rowsPerPage: 5,
-        sortBy: 'nomeProjeto',
+        // sortBy: 'nomeProjeto',
         totalItems: 0
       },
       timeout: 4000,
@@ -190,9 +217,9 @@ export default {
           align: 'left',
           value: 'nomeProjeto'
         },
-        { text: 'Editar', align: 'center', sortable: false },
-        { text: 'Excluir', align: 'center', sortable: false },
-        { text: 'Detalhar', align: 'center', sortable: false }
+        { text: 'Editar', align: 'center', value: 'edit', sortable: false },
+        { text: 'Excluir', align: 'center', value: 'delete', sortable: false },
+        { text: 'Detalhar', align: 'center', value: 'view', sortable: false }
       ]
     }
   },

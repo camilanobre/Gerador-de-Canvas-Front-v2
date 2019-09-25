@@ -1,6 +1,6 @@
 <template>
   <v-toolbar
-    style="background: background-color: #ffffff">
+    color="deep-purple lighten-5">
     <v-btn
       v-if="responsive"
       icon

@@ -5,8 +5,8 @@ export default {
       items: []
     }
   },
-  getAllSuccess (state, canvass) {
-    state.all = { items: canvass }
+  getAllSuccess (state, canvas) {
+    state.all = { items: canvas }
   },
   getAllFailure (state, error) {
     state.all = { error }

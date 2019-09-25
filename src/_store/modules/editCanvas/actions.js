@@ -1,5 +1,5 @@
 import { canvasService } from '../../../_services'
-
+import { router } from '../../../_helpers'
 export default {
   getCanvasEdit ({ commit }, canvas) {
     commit('getCanvasEdit', canvas)
@@ -8,14 +8,14 @@ export default {
   getCanvasView ({ commit }, canvas) {
     commit('getCanvasView', canvas)
   },
-  register ({ dispatch, commit }, canvas) {
+  update ({ dispatch, commit }, canvas) {
     commit('registerRequest', canvas)
     console.log('EDITANDO  REGISTER CANVAS => ' + canvas)
     canvasService.update(canvas)
       .then(
         canvas => {
           commit('registerSuccess', canvas)
-          // router.push('/meusProjetos')
+          router.push('/meusProjetos')
           setTimeout(() => {
             // display success message after route change completes
             dispatch('alert/success', 'Registration successful', { root: true })

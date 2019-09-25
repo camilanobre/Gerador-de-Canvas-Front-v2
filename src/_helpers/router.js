@@ -20,8 +20,8 @@ export const router = new Router({
     { path: '/comoCriar', name: 'Como criar um Canvas?', component: ComoCriarPage },
     { path: '/iniciarProjeto', name: 'Iniciando um projeto :)', component: IniciarProjetoPage },
     { path: '/meusProjetos', name: 'Meus Projetos', component: MeusProjetosPage },
-    { path: '/editarMeusProjetos', name: 'Meus Projetos', component: EditarMeusProjetosPage },
-    { path: '/detalharMeusProjetos', name: 'Meus Projetos', component: DetalharMeusProjetosPage },
+    { path: '/editarMeusProjetos', name: 'Editar Projeto', component: EditarMeusProjetosPage },
+    { path: '/detalharMeusProjetos', name: 'Detalhar Projeto', component: DetalharMeusProjetosPage },
     { path: '/sobre', name: 'Sobre nós', component: SobrePage }
   ]
 })

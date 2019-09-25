@@ -6,7 +6,7 @@ export default {
     commit('getAllRequest')
     canvasService.getAll()
       .then(
-        canvass => commit('getAllSuccess', canvass),
+        canvas => commit('getAllSuccess', canvas),
         error => commit('getAllFailure', error)
       )
   },

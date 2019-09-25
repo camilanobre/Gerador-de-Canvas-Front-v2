@@ -52,12 +52,15 @@
                         sm6
                         md8>
                         <v-text-field
+                          v-model= "canvas.nomeProjeto"
+                          :rules="projetoRules"
                           label="Nome do Projeto"
                           placeholder="Qual será o nome do seu projeto?"
                         />
                       </v-flex>
                       <v-flex xs12>
                         <v-textarea
+                          v-model= "canvas.propostaValor"
                           label="Proposta de Valor"
                           placeholder="Informe a sua proposta de valor"
                           hint="Alguma dúvida? Clica no ícone de interrogação!"
@@ -77,6 +80,7 @@
                       </v-flex>
                       <v-flex xs12>
                         <v-textarea
+                          v-model= "canvas.segmentosMercado"
                           label="Segmento de Clientes"
                           placeholder="Informe o seu segmento de Clientes"
                           hint="Alguma dúvida? Clica no ícone de interrogação!"
@@ -109,6 +113,7 @@
                       height="100%">
                       <v-flex xs12>
                         <v-textarea
+                          v-model= "canvas.relacoesClientes"
                           label="Relacionamento com o Clientes"
                           placeholder="Informe o seu relacionamento de clientes"
                           hint="Alguma dúvida? Clica no ícone de interrogação!"
@@ -128,6 +133,7 @@
                       </v-flex>
                       <v-flex xs12>
                         <v-textarea
+                          v-model= "canvas.canaisVenda"
                           label="Canais de Distribuição"
                           placeholder="Informe os seus canais de distribuição"
                           hint="Alguma dúvida? Clica no ícone de interrogação!"
@@ -160,6 +166,7 @@
                       height="100%">
                       <v-flex xs12>
                         <v-textarea
+                          v-model= "canvas.atividadesChave"
                           label="Atividades Chaves"
                           placeholder="Informe as suas atividades chave"
                           hint="Alguma dúvida? Clica no ícone de interrogação!"
@@ -179,6 +186,7 @@
                       </v-flex>
                       <v-flex xs12>
                         <v-textarea
+                          v-model= "canvas.recursosChave"
                           label="Recursos Chave"
                           placeholder="Informe os seus recursos chave"
                           hint="Alguma dúvida? Clica no ícone de interrogação!"
@@ -198,6 +206,7 @@
                       </v-flex>
                       <v-flex xs12>
                         <v-textarea
+                          v-model= "canvas.parceirosChave"
                           label="Parceiros Chave"
                           placeholder="Informe os seus parceiros chave"
                           hint="Alguma dúvida? Clica no ícone de interrogação!"
@@ -230,6 +239,7 @@
                       height="100%">
                       <v-flex xs12>
                         <v-textarea
+                          v-model= "canvas.fontesRenda"
                           label="Fonte de Receita"
                           placeholder="Informe a sua fonte de receita"
                           hint="Alguma dúvida? Clica no ícone de interrogação!"
@@ -249,6 +259,7 @@
                       </v-flex>
                       <v-flex xs12>
                         <v-textarea
+                          v-model= "canvas.estruturaCustos"
                           label="Estrutura de Custos"
                           placeholder="Informe a sua estrutura de custos"
                           hint="Alguma dúvida? Clica no ícone de interrogação!"
@@ -268,14 +279,14 @@
                       </v-flex>
                     </v-card>
                     <v-btn
+                      style="background-image: linear-gradient(to right,  #3264f5 20%, #7202bb 51%, #3264f5 100%)"
+                      @click="handleSubmit">Cadastrar</v-btn>
+                    <v-btn
                       style="background-image: linear-gradient(to right, #7202bb 51%, #3264f5 100%)"
                       to="/">Cancelar</v-btn>
                     <v-btn
                       style="background-image: linear-gradient(to right, #3264f5 51%, #7202bb 100%)"
                       @click="passo = 3">Voltar</v-btn>
-                    <v-btn
-                      style="background-image: linear-gradient(to right,  #3264f5 20%, #7202bb 51%, #3264f5 100%)"
-                      @click="passo = 2">Cadastrar</v-btn>
                   </v-stepper-content>
                 </v-stepper-items>
               </v-stepper>
@@ -540,6 +551,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 export default {
   data () {
     return {
@@ -556,10 +568,39 @@ export default {
       modalRecursos: false,
       modalParceiros: false,
       modalReceita: false,
-      modalCustos: false
+      modalCustos: false,
+      canvas: {
+        idCanvas: '',
+        nomeProjeto: '',
+        dataCriacaoProjeto: Date,
+        idUsuario: '',
+        parceirosChave: '',
+        atividadesChave: '',
+        recursosChave: '',
+        propostaValor: '',
+        relacoesClientes: '',
+        canaisVenda: '',
+        segmentosMercado: '',
+        estruturaCustos: '',
+        fontesRenda: ''
+      },
+      valid: true,
+      projetoRules: [v => !!v || 'O campo nome do projeto é obrigatório']
     }
   },
+  computed: {
+    ...mapState({
+      account: state => state.account
+    }),
+    ...mapState({
+      businessCanvas: state => state.canvas.all.items
+    })
+  },
   methods: {
+    ...mapActions('canvas', {
+      register: 'register'
+    }),
+
     openModalProposta () {
       this.modalProposta = true
     },
@@ -586,7 +627,24 @@ export default {
     },
     openModalCustos () {
       this.modalCustos = true
+    },
+    handleSubmit () {
+      this.submitted = true
+      if (this.$refs.form.validate()) {
+        console.log('registando um novo canvas =>' + JSON.stringify(this.canvas))
+        this.register(this.canvas).then(
+          this.$refs.form.reset()
+        )
+      }
+    },
+    NomeDoUsuario () {
+      if (this.account.user !== null || this.account !== '' || this.account.user !== '') {
+        this.account.user = JSON.parse(localStorage.getItem('usuario'))
+        this.nomeUsuario = this.account.user.value.nome
+        this.usuarioLogado = this.nomeUsuario
+      }
     }
+
   }
 }
 </script>

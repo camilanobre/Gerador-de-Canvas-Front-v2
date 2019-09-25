@@ -91,6 +91,12 @@ export default {
         divider: true
       },
       {
+        to: '',
+        icon: 'mdi-share-variant',
+        text: 'Projetos Públicos',
+        divider: true
+      },
+      {
         to: '/comoCriar',
         icon: 'mdi-help',
         text: 'Como criar o Canvas?',

@@ -6,6 +6,8 @@ import ComoCriarPage from '../views/comoCriarCanvas/ComoCriarPage'
 import IniciarProjetoPage from '../views/iniciarProjeto/IniciarProjetoPage'
 import SobrePage from '../views/sobre/SobrePage'
 import MeusProjetosPage from '../views/meusProjetos/MeusProjetosPage'
+import EditarMeusProjetosPage from '../views/meusProjetos/EditarMeusProjetosPage'
+import DetalharMeusProjetosPage from '../views/meusProjetos/DetalharMeusProjetosPage'
 
 Vue.use(Router)
 
@@ -18,6 +20,8 @@ export const router = new Router({
     { path: '/comoCriar', name: 'Como criar um Canvas?', component: ComoCriarPage },
     { path: '/iniciarProjeto', name: 'Iniciando um projeto :)', component: IniciarProjetoPage },
     { path: '/meusProjetos', name: 'Meus Projetos', component: MeusProjetosPage },
+    { path: '/editarMeusProjetos', name: 'Meus Projetos', component: EditarMeusProjetosPage },
+    { path: '/detalharMeusProjetos', name: 'Meus Projetos', component: DetalharMeusProjetosPage },
     { path: '/sobre', name: 'Sobre nós', component: SobrePage }
   ]
 })

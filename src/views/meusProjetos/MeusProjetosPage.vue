@@ -94,14 +94,16 @@
               </v-btn>
             </template>
             <template v-slot:item.view="{ item }">
-              <v-btn
-                fab
-                small
-                color="red darken-1"
-                @click="getCanvasView(item)"
-              >
-                <v-icon>mdi-magnify</v-icon>
-              </v-btn>
+              <div class="text-center">
+                <v-btn
+                  text
+                  icon
+                  large
+                  color="black"
+                  @click="getCanvasView(item)">
+                  <v-icon>mdi-magnify-plus</v-icon>
+                </v-btn>
+              </div>
             </template>
             <template v-slot:no-data>
               <v-alert

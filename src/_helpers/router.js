@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/home/Home'
-// import LoginPage from '../views/login/LoginPage'
+import LoginPage from '../views/login/LoginPage'
 import ComoCriarPage from '../views/comoCriarCanvas/ComoCriarPage'
 import IniciarProjetoPage from '../views/iniciarProjeto/IniciarProjetoPage'
 import SobrePage from '../views/sobre/SobrePage'
@@ -16,7 +16,7 @@ export const router = new Router({
   routes: [
     { path: '/', name: 'Início', component: Home },
     // { path: '/404', name: '404', component: NotFound },
-    // { path: '/login', component: LoginPage },
+    { path: '/login', component: LoginPage },
     { path: '/comoCriar', name: 'Como criar um Canvas?', component: ComoCriarPage },
     { path: '/iniciarProjeto', name: 'Iniciando um projeto :)', component: IniciarProjetoPage },
     { path: '/meusProjetos', name: 'Meus Projetos', component: MeusProjetosPage },
@@ -26,7 +26,7 @@ export const router = new Router({
   ]
 })
 
-/*  router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => {
   const publicPages = ['/login']
   const authRequired = !publicPages.includes(to.path)
   const loggedIn = localStorage.getItem('usuario')
@@ -34,4 +34,4 @@ export const router = new Router({
     return next('/login')
   }
   next()
-})  */
+})

@@ -1,5 +1,5 @@
 export const config = {
-  apiUrl: 'http://localhost:9900/api'
+  apiUrl: 'http://localhost:9900/api',
   // Local Sistema
   // apiUrl: 'http://127.0.0.1:   /api',
 
@@ -10,5 +10,5 @@ export const config = {
   // apiUrlUsuarios: 'http://127.0.0.1:4100/api'
 
   // Servidor Sistema Usuarios
-  // apiUrlUsuarios: 'http://172.21.63.23:4100/api'
+  apiUrlUsuarios: 'http://172.21.63.23:4100/api'
 }

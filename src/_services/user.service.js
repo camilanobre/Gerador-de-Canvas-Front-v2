@@ -5,7 +5,7 @@ export const userService = {
   logout
 }
 function login (login, senha) {
-  let sistema = 'pessoas'
+  let sistema = 'canvas'
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

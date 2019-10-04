@@ -111,9 +111,6 @@ export default {
     responsive: false
   }),
   computed: {
-    ...mapState({
-      account: state => state.account
-    }),
     ...mapState('app', ['color']),
     inputValue: {
       get () {
@@ -125,10 +122,16 @@ export default {
     },
     items () {
       return this.$t('Layout.View.items')
-    }
+    },
+    ...mapState({
+      account: state => state.account
+    })
   },
   created () {
     this.getUsuarioStorage()
+    /* if (!this.usuario.perfilSuper) {
+      this.validaPerfil()
+    } */
   },
   mounted () {
     this.onResponsiveInverted()
@@ -150,6 +153,33 @@ export default {
       let usuario = JSON.parse(localStorage.getItem('usuario'))
       this.usuario = usuario.value
     },
+/*     validaPerfil () {
+      let ids = []
+      for (let i = 0; i < this.links.length; i++) {
+        if (!this.links[i].title && this.links[i].text !== 'Sair') {
+          if (!this.verificarSeExiste(this.links[i].text)) {
+            ids.push(i)
+          }
+        }
+      }
+      this.remontaMenu(ids)
+    }, */
+    /* verificarSeExiste (item) {
+      // Descriptografando o moduloDescricaoFuncao
+      let objJsonStr = JSON.parse(atob(this.usuario.moduloDescricaoFuncao))
+      let qtd = Object.keys(objJsonStr).length
+
+      let existe = false
+      for (let i = 0; i < qtd; i++) {
+        if (decodeURIComponent(escape(objJsonStr[i].DescricaoModulo)) === item) {
+          existe = true
+          break
+        } else {
+          existe = false
+        }
+      }
+      return existe
+    }, */
     remontaMenu (ids) {
       let menuAntigo = this.links
       this.links = []
@@ -170,6 +200,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .theme--light.v-list{
   color: #fff

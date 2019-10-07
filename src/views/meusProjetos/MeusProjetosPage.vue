@@ -211,7 +211,8 @@ export default {
         canaisVenda: '',
         segmentosMercado: '',
         estruturaCustos: '',
-        fontesRenda: ''
+        fontesRenda: '',
+        compartilharCanvas: true
       },
       headers: [
         {

@@ -300,7 +300,7 @@
             top>
             {{ textoCadastro }}
             <v-btn
-              flat
+              text
               @click="snackbar = false">
               <v-icon left>mdi-close-circle</v-icon>
             </v-btn>
@@ -582,7 +582,8 @@ export default {
         canaisVenda: '',
         segmentosMercado: '',
         estruturaCustos: '',
-        fontesRenda: ''
+        fontesRenda: '',
+        compartilharCanvas: true
       },
       valid: true,
       projetoRules: [v => !!v || 'O campo nome do projeto é obrigatório']
@@ -633,6 +634,7 @@ export default {
       if (this.$refs.form.validate()) {
         console.log('registando um novo canvas =>' + JSON.stringify(this.canvas))
         this.register(this.canvas).then(
+          this.snackbar = true,
           this.$refs.form.reset()
         )
       }

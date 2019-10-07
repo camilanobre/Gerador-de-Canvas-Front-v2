@@ -68,6 +68,7 @@
                 <v-btn
                   outlined
                   color="indigo"
+                  @click="openModalCadastro()"
                 >Criar Conta</v-btn>
               </div>
             </v-card-text>
@@ -90,6 +91,98 @@
         </v-flex>
       </div>
     </v-container>
+    <!-- iniciando modal de cadastro -->
+    <v-row justify="center">
+      <v-dialog
+        v-model="modalCadastro"
+        persistent
+        max-width="600px">
+        <v-card>
+          <v-card-title>
+            <span class="headline">Criar Conta</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="4">
+                  <v-text-field
+                    :rules="nomeRules"
+                    label="Nome*"
+                    required/>
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="4">
+                  <v-text-field
+                    :rules="sobrenomeRules"
+                    label="Sobrenome*"/>
+                </v-col>
+                <v-col cols="12">
+                  <v-text-field
+                    :rules="emailRules"
+                    label="Email*"
+                    required/>
+                </v-col>
+                <v-col cols="12">
+                  <v-text-field
+                    :rules="passwordRules"
+                    label="Senha*"
+                    type="password"
+                    required/>
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="6">
+                  <v-select
+                    :items="['0-17', '18-29', '30-54', '54+']"
+                    label="Idade"
+                    required
+                  />
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="6">
+                  <v-autocomplete
+                    :items="['Amigos', 'Anúncios', 'Facebook', 'Twitter']"
+                    label="Como nos conheceu?"
+                    multiple
+                  />
+                </v-col>
+              </v-row>
+            </v-container>
+            <small>*campos obrigatórios</small>
+          </v-card-text>
+          <v-card-actions>
+            <div class="flex-grow-1"/>
+            <v-btn
+              color="deep-purple darken-4"
+              text
+              @click="modalCadastro = false">Fechar</v-btn>
+            <v-btn
+              color="deep-purple darken-4"
+              text
+              @click="cadastrarUsuario()">Cadastrar</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
+    <v-snackbar
+      v-model="snackbar"
+      :timeout="timeout"
+      color="success"
+      top>
+      {{ textoCadastro }}
+      <v-btn
+        text
+        @click="snackbar = false">
+        <v-icon
+          left>mdi-close-circle</v-icon>
+      </v-btn>
+    </v-snackbar>
   </div>
 </template>
 <script>
@@ -101,8 +194,21 @@ export default {
       email: '',
       show4: false,
       password: 'Password',
+      modalCadastro: false,
+      snackbar: false,
+      timeout: 6000,
+      textoCadastro: 'Cadastrado com sucesso!',
       emailRules: [
-        v => !!v || 'Informar login!'
+        v => !!v || 'Campo obrigatório!'
+      ],
+      nomeRules: [
+        v => !!v || 'Campo obrigatório!'
+      ],
+      sobrenomeRules: [
+        v => !!v || 'Campo obrigatório!'
+      ],
+      passwordRules: [
+        v => !!v || 'Campo obrigatório!'
       ],
       senha: '',
       senhaRules: [
@@ -125,6 +231,13 @@ export default {
   },
   methods: {
     ...mapActions('account', ['login', 'logout']),
+    openModalCadastro () {
+      this.modalCadastro = true
+    },
+    cadastrarUsuario () {
+      this.snackbar = true
+      this.modalCadastro = false
+    },
     validate () {
       if (this.$refs.form.validate()) {
         this.snackbar = true

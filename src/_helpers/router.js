@@ -28,7 +28,7 @@ export const router = new Router({
   ]
 })
 
-router.beforeEach((to, from, next) => {
+/* router.beforeEach((to, from, next) => {
   const publicPages = ['/landingPage', '/login']
   const authRequired = !publicPages.includes(to.path)
   const loggedIn = localStorage.getItem('usuario')
@@ -36,4 +36,4 @@ router.beforeEach((to, from, next) => {
     return next('/landingPage')
   }
   next()
-})
+}) */

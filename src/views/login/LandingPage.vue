@@ -1,5 +1,5 @@
 <template>
-  <v-img src="">
+  <v-img src="http://www.desktopimages.org/preview/get_photo/83351/2880/1800">
     <div>
       <v-app-bar
         color="purple darken-4"
@@ -36,7 +36,7 @@
         class="ma-2"
         outlined
         large
-        to="/login"
+        href="login"
         color="white">Começar</v-btn>
     </v-parallax>
     <v-container
@@ -96,13 +96,13 @@
                 </v-timeline-item>
 
                 <v-timeline-item
-                  color="indigo darken-1"
+                  color="deep-purple darken-1"
                   fill-dot
                   left
                   small
                 >
                   <v-card>
-                    <v-card-title class="indigo darken-1 justify-start">
+                    <v-card-title class="deep-purple darken-1 justify-start">
                       <h2
                         class="white--text"
                         style="font-size: 18px !important; font-family:Poppins', sans-serif">
@@ -114,7 +114,10 @@
                         <v-col
                           class="hidden-sm-and-down"
                           md="2">
-                          <v-icon size="64">mdi-help-box</v-icon>
+                          <v-icon 
+                          size="64"
+                          color="deep-purple darken-1"
+                          >mdi-help-box</v-icon>
                         </v-col>
                         <v-col
                           cols="12"
@@ -158,13 +161,13 @@
                 </v-timeline-item>
 
                 <v-timeline-item
-                  color="red lighten-1"
+                  color="cyan darken-3"
                   fill-dot
                   left
                   small
                 >
                   <v-card>
-                    <v-card-title class="red lighten-1 justify-end">
+                    <v-card-title class="cyan darken-3 justify-start">
                       <h2
                         class="white--text"
                         style="font-size: 18px !important; font-family:Poppins', sans-serif">
@@ -176,7 +179,7 @@
                         <v-col
                           class="hidden-sm-and-down"
                           md="2">
-                          <v-icon size="64">mdi-thought-bubble</v-icon>
+                          <v-icon color="cyan darken-3" size="64">mdi-thought-bubble</v-icon>
                         </v-col>
                         <v-col
                           cols="12"
@@ -188,12 +191,12 @@
                 </v-timeline-item>
 
                 <v-timeline-item
-                  color="green lighten-1"
+                  color="deep-purple darken-4"
                   fill-dot
                   right
                 >
                   <v-card>
-                    <v-card-title class="green lighten-1">
+                    <v-card-title class="deep-purple darken-4">
                       <v-icon
                         class="mr-4"
                         dark
@@ -210,12 +213,13 @@
                     <v-container>
                       <v-row>
                         <v-col>
-                          Coloque em prática sem precisar de papel em nossa plataforma. <br>
+                          Coloque em prática o seu projeto sem precisar de papel, na nossa plataforma!!! <br>
                           <div class="text-center">
                             <v-btn
                               class="ma-2"
                               x-large
-                              color="green lighten-1">Cadastre-se agora!</v-btn>
+                              href="login"
+                              color="indigo darken-4">Cadastre-se agora!</v-btn>
                           </div>
                         </v-col>
                       </v-row>
@@ -225,9 +229,74 @@
               </v-timeline>
             </v-flex>
           </v-layout>
+          <div>
+           <v-container
+                grid-list-md
+                text-center>
+                <v-layout wrap>
+              <v-hover v-slot:default="{ hover }">
+              <v-card
+                class="mx-auto"
+                max-width="400"
+          >
+            <v-img
+              height="300px"
+              src="http://www.albertacapital.online/images/illustration-01-95b432defb91396da68559d437fa033701513b827291d2f976466601ab8f2c6f.png"
+            >
+            <v-expand-transition>
+          <div
+            v-if="hover"
+            class="d-flex transition-fast-in-fast-out purple lighten-1 v-card--reveal display-3 white--text"
+            style="height: 100%;"
+          >
+            COMECE AGORA
+          </div>
+        </v-expand-transition>
+            </v-img>
+            <v-card-text class="text--black">
+              <span class="text--primary">
+                <hr/>
+                <span>Rápido, prático, simples e o melhor: nossa plataforma é totalmente gratuita! </span>
+              </span>
+            </v-card-text>
+          </v-card>
+          </v-hover>
+          <v-hover v-slot:default="{ hover }">
+          <v-card
+                class="mx-auto"
+                max-width="400"
+          >
+            <v-img
+              height="300px"
+              src="https://startups-sururuvalley.sfo2.cdn.digitaloceanspaces.com/2019/02/startup.png"
+            >
+          <v-expand-transition>
+          <div
+            v-if="hover"
+            class="d-flex transition-fast-in-fast-out purple lighten-1 v-card--reveal display-3 white--text"
+            style="height: 100%;"
+          >
+            CRIE O SEU CANVAS
+          </div>
+        </v-expand-transition>
+            </v-img>
+
+            <v-card-text>
+              <span class="text--primary">
+                <hr/>
+                <span>
+                  Lembre-se: "Todos os seus sonhos podem se tornar realidade se você tem coragem para persegui-los!
+                </span>
+              </span>
+            </v-card-text>
+          </v-card>
+          </v-hover>
+          </v-layout>
+           </v-container>
+           </div> <br>
           <v-footer>
-            <div class="flex-grow-1"/>
-            <div>&copy; Meu Canvas -{{ new Date().getFullYear() }}</div>
+            <div class="d-flex pa-2"/>
+            <div class="cor">&copy; Meu Canvas -{{ new Date().getFullYear() }}</div>
           </v-footer>
         </v-container>
       </v-layout>
@@ -255,3 +324,26 @@ export default {
   }
 }
 </script>
+<style>
+.theme--light.v-timeline:before {
+  color: white
+}
+h2  {
+  font-family:Poppins !important
+}
+.theme--light.v-timeline:before {
+  background: white
+}
+.cor {
+  color: white;
+  font-weight: bold
+}
+.v-card--reveal {
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  opacity: .5;
+  position: absolute;
+  width: 100%;
+}
+</style>

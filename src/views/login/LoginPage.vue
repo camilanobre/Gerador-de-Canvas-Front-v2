@@ -123,7 +123,7 @@
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
-                    :rules="emailRules"
+                    :rules="emailCadastroRules"
                     label="Email*"
                     required/>
                 </v-col>
@@ -199,7 +199,11 @@ export default {
       timeout: 6000,
       textoCadastro: 'Cadastrado com sucesso!',
       emailRules: [
-        v => !!v || 'Campo obrigatório!'
+        v => !!v || 'Campo obrigatório'
+      ],
+      emailCadastroRules:[
+        v => !!v || 'Campo obrigatório!',
+        v => /.+@.+/.test(v) || 'E-mail inválido!'
       ],
       nomeRules: [
         v => !!v || 'Campo obrigatório!'

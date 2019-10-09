@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <core-toolbar v-if="$route.path!=='/login' && $route.path!=='/404'"/>
-    <core-drawer v-if="$route.path!=='/login' && $route.path!=='/404'"/>
+    <core-toolbar v-if="$route.path!=='/login' && $route.path!=='/404' && $route.path!=='/landingPage'"/>
+    <core-drawer v-if="$route.path!=='/login' && $route.path!=='/404' && $route.path!=='/landingPage'"/>
     <core-view />
   </v-app>
 </template>

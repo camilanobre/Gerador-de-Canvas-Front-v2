@@ -16,7 +16,7 @@
       icon
       class="toolbar-items"
       color="grey darken-2"
-      to="/login"
+      to="/landingPage"
     >
       <v-icon>mdi-logout</v-icon>
     </v-btn>

@@ -8,6 +8,7 @@ import SobrePage from '../views/sobre/SobrePage'
 import MeusProjetosPage from '../views/meusProjetos/MeusProjetosPage'
 import EditarMeusProjetosPage from '../views/meusProjetos/EditarMeusProjetosPage'
 import DetalharMeusProjetosPage from '../views/meusProjetos/DetalharMeusProjetosPage'
+import LandingPage from '../views/login/LandingPage'
 
 Vue.use(Router)
 
@@ -22,16 +23,17 @@ export const router = new Router({
     { path: '/meusProjetos', name: 'Meus Projetos', component: MeusProjetosPage },
     { path: '/editarMeusProjetos', name: 'Editar Projeto', component: EditarMeusProjetosPage },
     { path: '/detalharMeusProjetos', name: 'Detalhar Projeto', component: DetalharMeusProjetosPage },
-    { path: '/sobre', name: 'Sobre nós', component: SobrePage }
+    { path: '/sobre', name: 'Sobre nós', component: SobrePage },
+    { path: '/landingPage', component: LandingPage }
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/login']
+  const publicPages = ['/landingPage', '/login']
   const authRequired = !publicPages.includes(to.path)
   const loggedIn = localStorage.getItem('usuario')
   if (authRequired && !loggedIn) {
-    return next('/login')
+    return next('/landingPage')
   }
   next()
 })

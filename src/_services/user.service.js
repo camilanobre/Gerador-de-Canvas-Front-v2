@@ -5,13 +5,12 @@ export const userService = {
   logout
 }
 function login (login, senha) {
-  let sistema = 'canvas'
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ login, senha, sistema })
+    body: JSON.stringify({ login, senha })
   }
-  return fetch(`${config.apiUrlUsuarios}/token`, requestOptions)
+  return fetch(`${config.apiUrl}/token`, requestOptions)
     .then(handleResponse)
     .then(user => {
       if (user.value) {

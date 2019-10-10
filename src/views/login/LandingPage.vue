@@ -114,9 +114,9 @@
                         <v-col
                           class="hidden-sm-and-down"
                           md="2">
-                          <v-icon 
-                          size="64"
-                          color="deep-purple darken-1"
+                          <v-icon
+                            size="64"
+                            color="deep-purple darken-1"
                           >mdi-help-box</v-icon>
                         </v-col>
                         <v-col
@@ -179,7 +179,9 @@
                         <v-col
                           class="hidden-sm-and-down"
                           md="2">
-                          <v-icon color="cyan darken-3" size="64">mdi-thought-bubble</v-icon>
+                          <v-icon
+                            color="cyan darken-3"
+                            size="64">mdi-thought-bubble</v-icon>
                         </v-col>
                         <v-col
                           cols="12"
@@ -230,70 +232,70 @@
             </v-flex>
           </v-layout>
           <div>
-           <v-container
-                grid-list-md
-                text-center>
-                <v-layout wrap>
-              <v-hover v-slot:default="{ hover }">
-              <v-card
-                class="mx-auto"
-                max-width="400"
-          >
-            <v-img
-              height="300px"
-              src="http://www.albertacapital.online/images/illustration-01-95b432defb91396da68559d437fa033701513b827291d2f976466601ab8f2c6f.png"
-            >
-            <v-expand-transition>
-          <div
-            v-if="hover"
-            class="d-flex transition-fast-in-fast-out purple lighten-1 v-card--reveal display-3 white--text"
-            style="height: 100%;"
-          >
-            COMECE AGORA
-          </div>
-        </v-expand-transition>
-            </v-img>
-            <v-card-text class="text--black">
-              <span class="text--primary">
-                <hr/>
-                <span>Rápido, prático, simples e o melhor: nossa plataforma é totalmente gratuita! </span>
-              </span>
-            </v-card-text>
-          </v-card>
-          </v-hover>
-          <v-hover v-slot:default="{ hover }">
-          <v-card
-                class="mx-auto"
-                max-width="400"
-          >
-            <v-img
-              height="300px"
-              src="https://startups-sururuvalley.sfo2.cdn.digitaloceanspaces.com/2019/02/startup.png"
-            >
-          <v-expand-transition>
-          <div
-            v-if="hover"
-            class="d-flex transition-fast-in-fast-out purple lighten-1 v-card--reveal display-3 white--text"
-            style="height: 100%;"
-          >
-            CRIE O SEU CANVAS
-          </div>
-        </v-expand-transition>
-            </v-img>
+            <v-container
+              grid-list-md
+              text-center>
+              <v-layout wrap>
+                <v-hover v-slot:default="{ hover }">
+                  <v-card
+                    class="mx-auto"
+                    max-width="400"
+                  >
+                    <v-img
+                      height="300px"
+                      src="http://www.albertacapital.online/images/illustration-01-95b432defb91396da68559d437fa033701513b827291d2f976466601ab8f2c6f.png"
+                    >
+                      <v-expand-transition>
+                        <div
+                          v-if="hover"
+                          class="d-flex transition-fast-in-fast-out purple lighten-1 v-card--reveal display-3 white--text"
+                          style="height: 100%;"
+                        >
+                          COMECE AGORA
+                        </div>
+                      </v-expand-transition>
+                    </v-img>
+                    <v-card-text class="text--black">
+                      <span class="text--primary">
+                        <hr>
+                        <span>Rápido, prático, simples e o melhor: nossa plataforma é totalmente gratuita! </span>
+                      </span>
+                    </v-card-text>
+                  </v-card>
+                </v-hover>
+                <v-hover v-slot:default="{ hover }">
+                  <v-card
+                    class="mx-auto"
+                    max-width="400"
+                  >
+                    <v-img
+                      height="300px"
+                      src="https://startups-sururuvalley.sfo2.cdn.digitaloceanspaces.com/2019/02/startup.png"
+                    >
+                      <v-expand-transition>
+                        <div
+                          v-if="hover"
+                          class="d-flex transition-fast-in-fast-out purple lighten-1 v-card--reveal display-3 white--text"
+                          style="height: 100%;"
+                        >
+                          CRIE O SEU CANVAS
+                        </div>
+                      </v-expand-transition>
+                    </v-img>
 
-            <v-card-text>
-              <span class="text--primary">
-                <hr/>
-                <span>
-                  Lembre-se: "Todos os seus sonhos podem se tornar realidade se você tem coragem para persegui-los!
-                </span>
-              </span>
-            </v-card-text>
-          </v-card>
-          </v-hover>
-          </v-layout>
-           </v-container>
-           </div> <br>
+                    <v-card-text>
+                      <span class="text--primary">
+                        <hr>
+                        <span>
+                          Lembre-se: "Todos os seus sonhos podem se tornar realidade se você tem coragem para persegui-los!
+                        </span>
+                      </span>
+                    </v-card-text>
+                  </v-card>
+                </v-hover>
+              </v-layout>
+            </v-container>
+          </div> <br>
           <v-footer>
             <div class="d-flex pa-2"/>
             <div class="cor">&copy; Meu Canvas -{{ new Date().getFullYear() }}</div>
@@ -317,7 +319,6 @@ export default {
     })
   },
   created () {
-    this.logout()
     if (this.account.state.mensagem !== '') {
       this.account.state.mensagem = ''
     }

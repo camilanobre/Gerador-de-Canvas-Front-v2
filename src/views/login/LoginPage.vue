@@ -97,78 +97,88 @@
         v-model="modalCadastro"
         persistent
         max-width="600px">
-        <v-card>
-          <v-card-title>
-            <span class="headline">Criar Conta</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container>
-              <v-row>
-                <v-col
-                  cols="12"
-                  sm="6"
-                  md="4">
-                  <v-text-field
-                    :rules="nomeRules"
-                    label="Nome*"
-                    required/>
-                </v-col>
-                <v-col
-                  cols="12"
-                  sm="6"
-                  md="4">
-                  <v-text-field
-                    :rules="sobrenomeRules"
-                    label="Sobrenome*"/>
-                </v-col>
-                <v-col cols="12">
-                  <v-text-field
-                    :rules="emailCadastroRules"
-                    label="Email*"
-                    required/>
-                </v-col>
-                <v-col cols="12">
-                  <v-text-field
-                    :rules="passwordRules"
-                    label="Senha*"
-                    type="password"
-                    required/>
-                </v-col>
-                <v-col
-                  cols="12"
-                  sm="6">
-                  <v-select
-                    :items="['0-17', '18-29', '30-54', '54+']"
-                    label="Idade"
-                    required
-                  />
-                </v-col>
-                <v-col
-                  cols="12"
-                  sm="6">
-                  <v-autocomplete
-                    :items="['Amigos', 'Anúncios', 'Facebook', 'Twitter']"
-                    label="Como nos conheceu?"
-                    multiple
-                  />
-                </v-col>
-              </v-row>
-            </v-container>
-            <small>*campos obrigatórios</small>
-          </v-card-text>
-          <v-card-actions>
-            <div class="flex-grow-1"/>
-            <v-btn
-              color="deep-purple darken-4"
-              text
-              @click="modalCadastro = false">Fechar</v-btn>
-            <v-btn
-              color="deep-purple darken-4"
-              text
-              @click="cadastrarUsuario()">Cadastrar</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+        <v-form
+          ref="formCadastro"
+          v-model="valid"
+          lazy-validation
+        >
+          <v-card>
+            <v-card-title>
+              <span class="headline">Criar Conta</span>
+            </v-card-title>
+            <v-card-text>
+              <v-container>
+                <v-row>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4">
+                    <v-text-field
+                      v-model="usuario.nome"
+                      :rules="nomeRules"
+                      label="Nome*"
+                      required/>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4">
+                    <v-text-field
+                      v-model="usuario.login"
+                      :rules="loginRules"
+                      label="Login*"
+                      required/>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      v-model="usuario.email"
+                      :rules="emailCadastroRules"
+                      label="Email*"
+                      required/>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      v-model="usuario.senha"
+                      :rules="passwordRules"
+                      label="Senha*"
+                      type="password"
+                      required/>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6">
+                    <v-select
+                      :items="['0-17', '18-29', '30-54', '54+']"
+                      label="Idade"
+                      required
+                    />
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6">
+                    <v-autocomplete
+                      :items="['Amigos', 'Anúncios', 'Facebook', 'Twitter']"
+                      label="Como nos conheceu?"
+                      multiple
+                    />
+                  </v-col>
+                </v-row>
+              </v-container>
+              <small>*campos obrigatórios</small>
+            </v-card-text>
+            <v-card-actions>
+              <div class="flex-grow-1"/>
+              <v-btn
+                color="deep-purple darken-4"
+                text
+                @click="modalCadastro = false">Fechar</v-btn>
+              <v-btn
+                color="deep-purple darken-4"
+                text
+                @click="handleSubmit">Cadastrar</v-btn>
+            </v-card-actions>
+          </v-card>
+      </v-form></v-dialog>
     </v-row>
     <v-snackbar
       v-model="snackbar"
@@ -190,6 +200,12 @@ import { mapState, mapActions } from 'vuex'
 export default {
   data () {
     return {
+      usuario: {
+        nome: '',
+        login: '',
+        senha: '',
+        email: ''
+      },
       logo: './img/login.png',
       email: '',
       show4: false,
@@ -201,9 +217,12 @@ export default {
       emailRules: [
         v => !!v || 'Campo obrigatório'
       ],
-      emailCadastroRules:[
+      emailCadastroRules: [
         v => !!v || 'Campo obrigatório!',
         v => /.+@.+/.test(v) || 'E-mail inválido!'
+      ],
+      loginRules: [
+        v => !!v || 'Campo obrigatório!'
       ],
       nomeRules: [
         v => !!v || 'Campo obrigatório!'
@@ -235,12 +254,22 @@ export default {
   },
   methods: {
     ...mapActions('account', ['login', 'logout']),
+    ...mapActions('usuarios', {
+      register: 'register'
+    }),
     openModalCadastro () {
       this.modalCadastro = true
     },
     cadastrarUsuario () {
       this.snackbar = true
       this.modalCadastro = false
+    },
+    handleSubmit () {
+      if (this.$refs.formCadastro.validate()) {
+        console.log('Usuario a ser cadastrado: ' + JSON.stringify(this.usuario))
+        this.register(this.usuario)
+        this.$refs.formCadastro.reset()
+      }
     },
     validate () {
       if (this.$refs.form.validate()) {

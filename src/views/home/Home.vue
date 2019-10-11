@@ -52,6 +52,13 @@
                 grid-list-md
                 text-center>
                 <v-layout wrap>
+                  <v-flex
+                    xs12
+                    sm12
+                    md4
+                    lg4
+                    xl4
+                  >
                   <v-hover v-slot:default="{ hover }">
                     <v-card 
                       :elevation="hover ? 12 : 2"
@@ -73,10 +80,18 @@
                       <v-card-text style="text-align: justify">
                         O Canvas agiliza e facilita o processo estratégico.
                         É uma ferramenta flexível e de fácil compreensão.
-                        Sua visualização estratégica aumenta a competitividade.
+                        Sua visualização estratégica aumenta a competitividade. <br><br><br>
                       </v-card-text>
                     </v-card>
                   </v-hover>
+                  </v-flex>
+                  <v-flex
+                    xs12
+                    sm12
+                    md8
+                    lg4
+                    xl8
+                  >
                   <v-hover v-slot:default="{ hover }">
                     <v-card
                       :elevation="hover ? 12 : 2"
@@ -102,6 +117,14 @@
                       </v-card-text>
                     </v-card>
                   </v-hover>
+                  </v-flex>
+                  <v-flex
+                      xs12
+                      sm12
+                      md4
+                      lg4
+                      xl4
+                    >
                   <v-hover v-slot:default="{ hover }">
                     <v-card
                       :elevation="hover ? 12 : 2"
@@ -120,15 +143,25 @@
                       />
                       <v-card-text style="text-align: justify">
                         O Canvas uma das ferramentas mais utilizadas por empreendedores e
-                        empresas para iniciar um negócio ou para inovar em empresas já constituídas.
+                        empresas para iniciar um negócio ou para inovar em empresas já constituídas. <br><br><br>
                       </v-card-text>
                     </v-card>
                   </v-hover>
+                  </v-flex>
                 </v-layout>
               </v-container>
             </template>
           </v-flex>
         </v-layout>
+          <v-container
+        grid-list-md
+        text-xs-center
+      >
+        <v-layout
+          row
+          wrap
+        >
+          <v-flex xs12>
         <v-card
           class="mx-auto"
           height="200"
@@ -136,6 +169,13 @@
         >
           <v-card-title style="color: black; text-align: center">Pronto para começar ?</v-card-title>
           <v-card-actions>
+            <v-flex
+                xs12
+                sm12
+                md6
+                lg6
+                xl6
+              >
             <div class="my-2">
               <v-hover v-slot:default="{ hover }">
                 <v-btn
@@ -147,7 +187,15 @@
                 </v-btn>
               </v-hover>
             </div>
+            </v-flex>
             <v-spacer/>
+            <v-flex
+                xs12
+                sm12
+                md6
+                lg6
+                xl6
+              >
             <div class="my-2">
               <v-hover v-slot:default="{ hover }">
                 <v-btn
@@ -160,8 +208,12 @@
                 </v-btn>
               </v-hover>
             </div>
+            </v-flex>
           </v-card-actions>
-        </v-card>
+         </v-card>
+        </v-flex>
+        </v-layout>
+        </v-container>
       </v-container>
       <v-footer>
         <div class="flex-grow-1"/>

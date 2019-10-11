@@ -181,6 +181,19 @@
       </v-form></v-dialog>
     </v-row>
     <v-snackbar
+      v-model="snackbarLogin"
+      :timeout="timeout"
+      color="purple darken-2"
+      top>
+      {{ textoLogin }}
+      <v-btn
+        text
+        @click="snackbarLogin = false">
+        <v-icon
+          left>mdi-close-circle</v-icon>
+      </v-btn>
+    </v-snackbar>
+    <v-snackbar
       v-model="snackbar"
       :timeout="timeout"
       color="success"
@@ -212,6 +225,8 @@ export default {
       password: 'Password',
       modalCadastro: false,
       snackbar: false,
+      snackbarLogin: false,
+      textoLogin: 'Autenticando...',
       timeout: 6000,
       textoCadastro: 'Cadastrado com sucesso!',
       emailRules: [
@@ -273,7 +288,7 @@ export default {
     },
     validate () {
       if (this.$refs.form.validate()) {
-        this.snackbar = true
+        this.snackbarLogin = true
         const { email, senha } = this
         if (email && senha) {
           this.login({ email, senha })

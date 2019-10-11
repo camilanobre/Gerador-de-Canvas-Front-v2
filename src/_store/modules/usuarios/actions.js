@@ -1,5 +1,4 @@
 import { usuarioService } from '../../../_services'
-import { router } from '../../../_helpers'
 
 export default {
 
@@ -17,7 +16,6 @@ export default {
     usuarioService.register(usuario).then(
       usuario => {
         commit('registerSuccess', usuario)
-        router.push('/usuarios')
         setTimeout(() => {
           dispatch('alert/success', 'Registration successful', { root: true })
         })

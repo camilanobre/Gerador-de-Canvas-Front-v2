@@ -53,7 +53,7 @@
                 text-center>
                 <v-layout wrap>
                   <v-hover v-slot:default="{ hover }">
-                    <v-card
+                    <v-card 
                       :elevation="hover ? 12 : 2"
                       :flat="flat"
                       :loading="loading"

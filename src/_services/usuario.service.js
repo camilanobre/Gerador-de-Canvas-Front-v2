@@ -13,7 +13,7 @@ function getAll () {
     method: 'GET',
     headers: authHeader()
   }
-  return fetch(`${config.apiUrl}/Usuario/ObterTodos`, requestOptions).then(handleResponse)
+  return fetch(`${config.apiUrl}/Usuario/ObterTodosUsuarios`, requestOptions).then(handleResponse)
 }
 
 function register (usuario) {
@@ -22,7 +22,7 @@ function register (usuario) {
     headers: { ...authHeader(), 'Content-Type': 'application/json' },
     body: JSON.stringify(usuario)
   }
-  return fetch(`${config.apiUrl}/Usuario/Inserir`, requestOptions).then(handleResponse)
+  return fetch(`${config.apiUrl}/Usuario/AdicionarUsuario`, requestOptions).then(handleResponse)
 }
 
 function update (usuario) {
@@ -31,7 +31,7 @@ function update (usuario) {
     headers: { ...authHeader(), 'Content-Type': 'application/json' },
     body: JSON.stringify(usuario)
   }
-  return fetch(`${config.apiUrl}/Usuario/Atualizar/${usuario.id}`, requestOptions).then(handleResponse)
+  return fetch(`${config.apiUrl}/Usuario/AtualizarUsuario/${usuario.idUsuario}`, requestOptions).then(handleResponse)
 }
 
 function _delete (id) {
@@ -39,7 +39,7 @@ function _delete (id) {
     method: 'DELETE',
     headers: authHeader()
   }
-  return fetch(`${config.apiUrl}/Usuario/Excluir/${id}`, requestOptions).then(handleResponse)
+  return fetch(`${config.apiUrl}/Usuario/DeletarUsuario/${id}`, requestOptions).then(handleResponse)
 }
 
 function handleResponse (response) {

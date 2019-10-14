@@ -10,7 +10,7 @@
         sm12
         lg12
       >
-        <div id="botaoImprimir">
+        <!-- <div id="botaoImprimir">
           <v-btn
             color="primary"
             @click="imprimir"
@@ -18,13 +18,14 @@
             <v-icon left>mdi-printer</v-icon>
             Imprimir
           </v-btn>
-        </div>
+        </div> -->
         <div class="printing">
           <!-- <img
             src="../../../public/img/logo-prefeitura1.png"
             alt="Logo"
             class="logo-prefeitura"
           > -->
+          {{ canvas }}
           <h2 style="text-align:center"> Projeto {{ canvas.nomeProjeto }}</h2>
           <hr>
           <v-row
@@ -33,14 +34,12 @@
             <v-col
               class="d-flex"
               cols="12"
-              md="4"
+              md="2"
             >
               <v-sheet
                 class="d-flex"
                 color="light-green lighten-4"
-                width="250"
-                height="450"
-                style="padding-left: 50px"
+                height="200"
               >
                 <sheet-footer>
                   Parcerias Chave <v-icon color="black">mdi-human-male-female</v-icon>
@@ -48,85 +47,157 @@
               </v-sheet>
             </v-col>
 
+
+
+
+
             <v-col
               class="d-flex"
               cols="12"
-              md="4"
+              md="2"
             >
               <v-row>
-                <v-col cols="10">
-                  <v-sheet
-                    class="d-flex"
-                    color="green lighten-3"
-                    width="250"
-                    height="250"
-                    style="padding-left: 50px"
-                  >
-                    <sheet-footer>
-                      Atividades Chave <v-icon color="black">mdi-worker</v-icon>
-                    </sheet-footer>
-                  </v-sheet>
-                </v-col>
-                <v-col cols="10">
-                  <v-sheet
-                    class="d-flex"
-                    color="yellow lighten-3"
-                    width="250"
-                    height="250"
-                  >
-                    <sheet-footer>
-                      Recursos Chave <v-icon color="black">mdi-key-change</v-icon>
-                    </sheet-footer>
-                  </v-sheet>
-                </v-col>
-                <v-col cols="6">
-                  <v-sheet
-                    class="d-flex"
-                    color="red lighten-3"
-                    height="250"
-                    width="400"
-                  >
-                    <sheet-footer>
-                      Estrutura de Custos <v-icon color="black">mdi-cash-multiple</v-icon>
-                    </sheet-footer>
-                  </v-sheet>
-                </v-col>
+                <v-sheet
+                  class="d-flex"
+                  color="yellow lighten-3"
+                  width="150"
+                  height="100"
+                >
+                  <sheet-footer>
+                    #3: (1r x 1c)
+                  </sheet-footer>
+                </v-sheet>
+                <v-sheet
+                  class="d-flex"
+                  color="red lighten-3"
+                  width="150"
+                  height="100"
+                >
+                  <sheet-footer>
+                    #5: (2r x 2c)
+                  </sheet-footer>
+                </v-sheet>
               </v-row>
             </v-col>
+
+
+
+
+
             <v-col
-              cols="6"
+              class="d-flex"
+              cols="12"
               md="2"
             >
               <v-sheet
                 class="d-flex"
-                color="teal lighten-3"
-                width="250"
-                height="450"
-                style="padding-left: 50px"
+                color="light-green lighten-4"
+                height="200"
               >
                 <sheet-footer>
-                  Proposta de Valor <v-icon color="black">mdi-gift</v-icon>
+                  Parcerias Chave <v-icon color="black">mdi-human-male-female</v-icon>
                 </sheet-footer>
               </v-sheet>
             </v-col>
-            
-            <v-col
+
+
+
+
+
+
+             <v-col
               class="d-flex"
-              cols="6"
+              cols="12"
               md="2"
             >
+              <v-row>
+                <v-sheet
+                  class="d-flex"
+                  color="yellow lighten-3"
+                  width="150"
+                  height="100"
+                >
+                  <sheet-footer>
+                    #3: (1r x 1c)
+                  </sheet-footer>
+                </v-sheet>
+                <v-sheet
+                  class="d-flex"
+                  color="red lighten-3"
+                  width="150"
+                  height="100"
+                >
+                  <sheet-footer>
+                    #5: (2r x 2c)
+                  </sheet-footer>
+                </v-sheet>
+              </v-row>
+            </v-col>
+
+
+
+
+
+
+            <v-col
+              class="d-flex"
+              cols="12"
+              md="3"
+            >
               <v-sheet
-                class="d-flex mt-auto"
-                color="purple lighten-3"
-                height="250"
-                width="400"
+                class="d-flex"
+                color="light-green lighten-4"
+                height="200"
               >
                 <sheet-footer>
-                  Fontes de Receita <v-icon color="black">mdi-bank</v-icon>
+                  Parcerias Chave <v-icon color="black">mdi-human-male-female</v-icon>
+                </sheet-footer>
+              </v-sheet>
+            </v-col>
+
+
+
+
+
+            <v-col
+              class="d-flex"
+              cols="12"
+              md="5"
+            >
+              <v-sheet
+                class="d-flex"
+                color="light-green lighten-4"
+                width="400"
+                height="200"
+              >
+                <sheet-footer>
+                  Parcerias Chave <v-icon color="black">mdi-human-male-female</v-icon>
+                </sheet-footer>
+              </v-sheet>
+            </v-col>
+            <v-col
+              class="d-flex"
+              cols="12"
+              md="5"
+            >
+              <v-sheet
+                class="d-flex"
+                color="light-green lighten-4"
+                width="400"
+                height="200"
+              >
+                <sheet-footer>
+                  Parcerias Chave <v-icon color="black">mdi-human-male-female</v-icon>
                 </sheet-footer>
               </v-sheet>
             </v-col>
           </v-row>
+          
+
+
+
+
+
         </div>
         <div id="botaoVoltar">
           <v-btn
@@ -228,7 +299,7 @@ export default {
 <style >
 .printing {
   font-family: 'Open Sans', sans-serif;
-  max-width: 1000px;
+  max-width: 1100px;
   border: solid 1px #ccc;
   text-align: center;
   margin: 2em auto;
@@ -249,9 +320,5 @@ export default {
 .theme--light.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined){
 background-color:#212121
 }
-.col-6{
-    padding: 0,
-}
-
 
 </style>

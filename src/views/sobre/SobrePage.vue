@@ -62,15 +62,14 @@
                         <v-icon color="black">mdi-linkedin-box</v-icon>
                       </v-btn>
                     </v-col>
-
                     <v-col class="px-0">
-                      <v-btn icon
+                      <v-btn
+                        icon
                         href="https://www.facebook.com/camxnobre"
                         target="_blank">
                         <v-icon color="black">mdi-facebook-box</v-icon>
                       </v-btn>
                     </v-col>
-
                     <v-col class="px-0">
                       <v-btn
                         icon
@@ -84,8 +83,9 @@
               </v-row>
             </v-container>
           </v-card>
-          <v-card class="d-flex flex-row mb-3"
-          color="#FAFAFA">
+          <v-card
+            class="d-flex flex-row mb-3"
+            color="#FAFAFA">
             <v-container>
               <v-row justify="space-between">
                 <v-col cols="auto">
@@ -129,15 +129,14 @@
                         <v-icon color="black">mdi-linkedin-box</v-icon>
                       </v-btn>
                     </v-col>
-
                     <v-col class="px-0">
-                      <v-btn icon 
+                      <v-btn
+                        icon
                         href="https://www.facebook.com/lisa.bontempo.7"
                         target="_blank">
                         <v-icon color="black">mdi-facebook-box</v-icon>
                       </v-btn>
                     </v-col>
-
                     <v-col class="px-0">
                       <v-btn
                         icon
@@ -152,8 +151,9 @@
               </v-row>
             </v-container>
           </v-card>
-          <v-card class="d-flex flex-row mb-8"
-          color="#FAFAFA">
+          <v-card
+            class="d-flex flex-row mb-8"
+            color="#FAFAFA">
             <v-container>
               <v-row justify="space-between">
                 <v-col cols="auto">
@@ -200,15 +200,14 @@
                         <v-icon color="black">mdi-linkedin-box</v-icon>
                       </v-btn>
                     </v-col>
-
                     <v-col class="px-0">
-                      <v-btn icon
+                      <v-btn
+                        icon
                         href="https://www.facebook.com/bruno.alvescaixeta"
                         target="_blank">
                         <v-icon color="black">mdi-facebook-box</v-icon>
                       </v-btn>
                     </v-col>
-
                     <v-col class="px-0">
                       <v-btn icon>
                         <v-icon color="black">mdi-github-box</v-icon>
@@ -221,8 +220,9 @@
           </v-card>
         </v-row><br>
         <v-row justify="space-around">
-          <v-card class="d-flex flex-row mb-3"
-          color="#FAFAFA">
+          <v-card
+            class="d-flex flex-row mb-3"
+            color="#FAFAFA">
             <v-container>
               <v-row justify="space-between">
                 <v-col cols="auto">
@@ -283,8 +283,9 @@
               </v-row>
             </v-container>
           </v-card>
-          <v-card class="d-flex flex-row mb-3"
-          color="#FAFAFA">
+          <v-card
+            class="d-flex flex-row mb-3"
+            color="#FAFAFA">
             <v-container>
               <v-row justify="space-between">
                 <v-col cols="auto">
@@ -334,7 +335,8 @@
                     </v-col>
 
                     <v-col class="px-0">
-                      <v-btn icon
+                      <v-btn
+                        icon
                         href="https://www.facebook.com/igor.torquato.58"
                         target="_blank">
                         <v-icon color="black">mdi-facebook-box</v-icon>
@@ -351,8 +353,9 @@
               </v-row>
             </v-container>
           </v-card>
-          <v-card class="d-flex flex-row mb-8"
-          color="#FAFAFA">
+          <v-card
+            class="d-flex flex-row mb-8"
+            color="#FAFAFA">
             <v-container>
               <v-row justify="space-between">
                 <v-col cols="auto">
@@ -392,7 +395,8 @@
                     justify="center"
                   >
                     <v-col class="px-0">
-                      <v-btn icon
+                      <v-btn
+                        icon
                         href="https://www.linkedin.com/in/yuri-rodrigues-de-sousa-a70099117/"
                         target="_blank">
                         <v-icon color="black">mdi-linkedin-box</v-icon>
@@ -400,7 +404,8 @@
                     </v-col>
 
                     <v-col class="px-0">
-                      <v-btn icon
+                      <v-btn
+                        icon
                         href="https://www.facebook.com/yuri.rodriguesdesousa"
                         target="_blank">
                         <v-icon color="black">mdi-facebook-box</v-icon>
@@ -408,7 +413,8 @@
                     </v-col>
 
                     <v-col class="px-0">
-                      <v-btn icon
+                      <v-btn
+                        icon
                         href="https://github.com/yrodridues"
                         target="_blank">
                         <v-icon color="black">mdi-github-box</v-icon>

@@ -38,43 +38,6 @@
             hide-default-footer
             class="elevation-1"
           >
-            <!-- <template v-slot:items="props">
-              <td> {{ props.item.nomeProjeto }}</td>
-              <td>teste</td>
-              <td class="text-xs-center">
-                <v-btn
-                  color="info"
-                  @click="getCanvasEdit(props.item)"
-                >
-                  <v-icon left>mdi-pencil-circle</v-icon>
-                  Editar
-                </v-btn>
-              </td>
-              <td class="text-xs-center">
-                <v-btn
-                  color="error"
-                  @click="openModalDelete(props.item.nomeProjeto, props.item.idCanvas)"
-                >
-                  <v-icon left>mdi-delete-circle</v-icon>
-                  Excluir
-                </v-btn>
-              </td>
-              <td class="text-xs-center">
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on }">
-                    <v-btn
-                      fab
-                      small
-                      color="tertiary"
-                      v-on="on"
-                      @click="getCanvasView(props.item)"
-                    >
-                      <v-icon>mdi-magnify</v-icon>
-                    </v-btn>
-                  </template>
-                </v-tooltip>
-              </td>
-            </template> -->
             <template v-slot:item.edit="{ item }">
               <v-btn
                 color="info"
@@ -92,6 +55,18 @@
                 <v-icon left>mdi-delete-circle</v-icon>
                 Excluir
               </v-btn>
+            </template>
+            <template v-slot:item.share="{ item }">
+              <div class="text-center">
+                <v-btn
+                  text
+                  icon
+                  large
+                  color="black"
+                  @click="openModalCompartilhar(item)">
+                  <v-icon>mdi-share-variant</v-icon>
+                </v-btn>
+              </div>
             </template>
             <template v-slot:item.view="{ item }">
               <div class="text-center">
@@ -134,13 +109,44 @@
           </div>
         </material-card>
       </v-flex>
+       <v-dialog
+        v-model="modalCompartilhar"
+        persistente
+        max-width="600">
+        <v-card>
+           <v-card-title
+            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
+            primary-title
+          >Compartilhar
+          </v-card-title>
+          <v-container grid-list-md>
+          </v-container>
+          <v-card-actions>
+            <v-spacer/>
+            <v-btn
+              color="blue darken-1"
+              text
+              large
+              @click="canvasCompartilhado()">
+              Confirmar
+            </v-btn>
+            <v-btn
+              color="red darken-1"
+              text
+              @click="modalCompartilhar = false">
+              Cancelar
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
       <v-dialog
         v-model="modalDelete"
         persistent
         max-width="600"
       >
         <v-card>
-          <v-card-title class="headline">O projeto será excluído!</v-card-title>
+          <v-card-title class="headline">
+            O projeto será excluído!</v-card-title>
           <v-card-text>
             Tem certeza que deseja excluir o projeto {{ nomeProjeto }}??
           </v-card-text>
@@ -161,20 +167,6 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-      <!-- <v-snackbar
-        :timeout="timeout"
-        v-model="snackbarError"
-        color="warning"
-        top
-      >
-        {{ textoError }}
-        <v-btn
-          flat
-          @click="snackbarError = false"
-        >
-          <v-icon left>mdi-close-circle</v-icon>
-        </v-btn>
-      </v-snackbar> -->
     </v-layout>
   </v-container>
 </template>
@@ -186,16 +178,15 @@ export default {
       textoPaginacao: 'Exibir',
       modalEdit: false,
       modalDelete: false,
-      // valid: true,
       pagination: {
         descending: false,
         page: 1,
         rowsPerPage: 5,
-        // sortBy: 'nomeProjeto',
         totalItems: 0
       },
       timeout: 4000,
       search: '',
+      modalCompartilhar: false,
       nomeUsuario: '',
       nomeProjeto: '',
       canva: {
@@ -212,7 +203,7 @@ export default {
         segmentosMercado: '',
         estruturaCustos: '',
         fontesRenda: '',
-        compartilharCanvas: true
+        compartilharCanvas: false
       },
       headers: [
         {
@@ -222,6 +213,7 @@ export default {
         },
         { text: 'Editar', align: 'center', value: 'edit', sortable: false },
         { text: 'Excluir', align: 'center', value: 'delete', sortable: false },
+        { text: 'Compartilhar', align: 'center', value: 'share', sortable: false },
         { text: 'Detalhar', align: 'center', value: 'view', sortable: false }
       ]
     }
@@ -271,6 +263,15 @@ export default {
       this.delete(idCanvas)
       this.getAllCanvas()
       this.modalDelete = false
+    },
+    openModalCompartilhar() {
+      this.modalCompartilhar = true
+    },
+    canvasCompartilhado(){
+      this.canvas.compartilharCanvas = true
+      console.log('status do compartilhamento depois de aceitar => ' + (this.canvas.compartilharCanvas))
+      this.modalCompartilhar = false
+
     },
     NomeDoUsuario () {
       if (this.account !== null || this.account.user !== null || this.account !== '' || this.account.user !== '') {

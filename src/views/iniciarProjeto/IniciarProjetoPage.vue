@@ -583,7 +583,7 @@ export default {
         segmentosMercado: '',
         estruturaCustos: '',
         fontesRenda: '',
-        compartilharCanvas: true
+        compartilharCanvas: false
       },
       valid: true,
       projetoRules: [v => !!v || 'O campo nome do projeto é obrigatório']

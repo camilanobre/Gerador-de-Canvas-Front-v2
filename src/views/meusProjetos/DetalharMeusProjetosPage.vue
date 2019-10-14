@@ -6,51 +6,32 @@
   >
     <v-layout wrap>
       <v-flex
-        md12
-        sm12
-        lg12
       >
-        <!-- <div id="botaoImprimir">
-          <v-btn
-            color="primary"
-            @click="imprimir"
-          >
-            <v-icon left>mdi-printer</v-icon>
-            Imprimir
-          </v-btn>
-        </div> -->
-        <div class="printing">
-          <!-- <img
-            src="../../../public/img/logo-prefeitura1.png"
-            alt="Logo"
-            class="logo-prefeitura"
-          > -->
           {{ canvas }}
           <h2 style="text-align:center"> Projeto {{ canvas.nomeProjeto }}</h2>
           <hr>
           <v-row
             class="flex-child"
           >
+          <!-- PARCERIAS CHAVE -->
             <v-col
               class="d-flex"
               cols="12"
-              md="2"
+              md="3"
             >
               <v-sheet
                 class="d-flex"
-                color="light-green lighten-4"
-                height="200"
+                color="yellow accent-3"
+                height="500"
+                width="600"
               >
                 <sheet-footer>
-                  Parcerias Chave <v-icon color="black">mdi-human-male-female</v-icon>
+                  Parcerias Chave <v-icon color="black">mdi-account-key</v-icon>
                 </sheet-footer>
               </v-sheet>
             </v-col>
 
-
-
-
-
+            <!-- ATIVIDADES CHAVE -->
             <v-col
               class="d-flex"
               cols="12"
@@ -59,31 +40,30 @@
               <v-row>
                 <v-sheet
                   class="d-flex"
-                  color="yellow lighten-3"
-                  width="150"
-                  height="100"
+                  color="lime accent-3"
+                  width="190"
+                  height="250"
                 >
                   <sheet-footer>
-                    #3: (1r x 1c)
+                    Atividades Chave <v-icon color="black">mdi-worker</v-icon>
                   </sheet-footer>
                 </v-sheet>
+
+                <!-- RECURSOS CHAVE -->
                 <v-sheet
                   class="d-flex"
-                  color="red lighten-3"
-                  width="150"
-                  height="100"
+                  color="blue accent-4"
+                  width="190"
+                  height="250"
                 >
                   <sheet-footer>
-                    #5: (2r x 2c)
+                    Recursos Chave <v-icon color="black">mdi-wrench</v-icon>
                   </sheet-footer>
                 </v-sheet>
               </v-row>
             </v-col>
 
-
-
-
-
+            <!-- PROPOSTA DE VALOR -->
             <v-col
               class="d-flex"
               cols="12"
@@ -91,20 +71,17 @@
             >
               <v-sheet
                 class="d-flex"
-                color="light-green lighten-4"
-                height="200"
+                color="pink accent-3"
+                height="500"
+                width="600"
               >
                 <sheet-footer>
-                  Parcerias Chave <v-icon color="black">mdi-human-male-female</v-icon>
+                  Proposta de Valor <v-icon color="black">mdi-gift</v-icon>
                 </sheet-footer>
               </v-sheet>
             </v-col>
 
-
-
-
-
-
+              <!-- RELACIONAMENTO COM O CLIENTE -->
              <v-col
               class="d-flex"
               cols="12"
@@ -113,32 +90,28 @@
               <v-row>
                 <v-sheet
                   class="d-flex"
-                  color="yellow lighten-3"
-                  width="150"
-                  height="100"
+                  color="purple accent-3"
+                  width="190"
+                  height="250"
                 >
                   <sheet-footer>
-                    #3: (1r x 1c)
+                   Relacionamento <v-icon color="black">mdi-heart</v-icon> 
                   </sheet-footer>
                 </v-sheet>
                 <v-sheet
                   class="d-flex"
-                  color="red lighten-3"
-                  width="150"
-                  height="100"
+                  color="yellow darken-2"
+                  width="190"
+                  height="250"
                 >
                   <sheet-footer>
-                    #5: (2r x 2c)
+                    Canais <v-icon color="black">mdi-truck-fast</v-icon>
                   </sheet-footer>
                 </v-sheet>
               </v-row>
             </v-col>
 
-
-
-
-
-
+            <!-- SEGMENTO DE CLIENTES -->
             <v-col
               class="d-flex"
               cols="12"
@@ -146,59 +119,52 @@
             >
               <v-sheet
                 class="d-flex"
-                color="light-green lighten-4"
-                height="200"
+                color="light-blue "
+                height="500"
+                width="600"
               >
                 <sheet-footer>
-                  Parcerias Chave <v-icon color="black">mdi-human-male-female</v-icon>
+                  Segmento<v-icon color="black">mdi-human-handsup</v-icon>
                 </sheet-footer>
               </v-sheet>
             </v-col>
 
-
-
-
-
+          <!-- Estrutura de custos -->
             <v-col
               class="d-flex"
               cols="12"
-              md="5"
+              md="6"
             >
               <v-sheet
                 class="d-flex"
-                color="light-green lighten-4"
-                width="400"
+                color="light-green accent-4"
+                width="800"
                 height="200"
               >
                 <sheet-footer>
-                  Parcerias Chave <v-icon color="black">mdi-human-male-female</v-icon>
+                  Estrutura de Custos <v-icon color="black">mdi-script</v-icon>
                 </sheet-footer>
               </v-sheet>
             </v-col>
+
+            <!-- Fontes de Receita -->
             <v-col
               class="d-flex"
               cols="12"
-              md="5"
+              md="6"
             >
               <v-sheet
                 class="d-flex"
-                color="light-green lighten-4"
-                width="400"
+                color="red lighten-1"
+                width="800"
                 height="200"
               >
                 <sheet-footer>
-                  Parcerias Chave <v-icon color="black">mdi-human-male-female</v-icon>
+                  Fontes de Receita <v-icon color="black">mdi-cash-usd</v-icon>
                 </sheet-footer>
               </v-sheet>
             </v-col>
           </v-row>
-          
-
-
-
-
-
-        </div>
         <div id="botaoVoltar">
           <v-btn
             color="tertiary"

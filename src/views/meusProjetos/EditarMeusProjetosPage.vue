@@ -582,7 +582,8 @@ export default {
         canaisVenda: this.$store.state.editCanvas.canvasEdit.canaisVenda,
         segmentosMercado: this.$store.state.editCanvas.canvasEdit.segmentosMercado,
         estruturaCustos: this.$store.state.editCanvas.canvasEdit.estruturaCustos,
-        fontesRenda: this.$store.state.editCanvas.canvasEdit.fontesRenda
+        fontesRenda: this.$store.state.editCanvas.canvasEdit.fontesRenda,
+        compartilharCanvas: this.$store.state.editCanvas.canvasEdit.compartilharCanvas
       },
       valid: true,
       projetoRules: [v => !!v || 'O campo nome do projeto é obrigatório']

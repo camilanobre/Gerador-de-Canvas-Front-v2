@@ -7,6 +7,14 @@
     <v-layout wrap>
       <v-flex
       >
+       <div id="botaoVoltar">
+          <v-btn
+            color="tertiary"
+            @click="voltar"
+          >
+            Voltar
+          </v-btn>
+        </div>
           {{ canvas }}
           <h2 style="text-align:center"> Projeto {{ canvas.nomeProjeto }}</h2>
           <hr>
@@ -27,6 +35,8 @@
               >
                 <sheet-footer>
                   Parcerias Chave <v-icon color="black">mdi-account-key</v-icon>
+                  <hr color="black">
+                  <span>{{ canvas.parceirosChave }}</span>
                 </sheet-footer>
               </v-sheet>
             </v-col>
@@ -41,11 +51,12 @@
                 <v-sheet
                   class="d-flex"
                   color="lime accent-3"
-                  width="190"
+                  width="210"
                   height="250"
                 >
                   <sheet-footer>
                     Atividades Chave <v-icon color="black">mdi-worker</v-icon>
+                    <hr color="black">
                   </sheet-footer>
                 </v-sheet>
 
@@ -53,11 +64,12 @@
                 <v-sheet
                   class="d-flex"
                   color="blue accent-4"
-                  width="190"
+                  width="210"
                   height="250"
                 >
                   <sheet-footer>
                     Recursos Chave <v-icon color="black">mdi-wrench</v-icon>
+                    <hr color="black">
                   </sheet-footer>
                 </v-sheet>
               </v-row>
@@ -77,6 +89,7 @@
               >
                 <sheet-footer>
                   Proposta de Valor <v-icon color="black">mdi-gift</v-icon>
+                  <hr color="black">
                 </sheet-footer>
               </v-sheet>
             </v-col>
@@ -91,21 +104,23 @@
                 <v-sheet
                   class="d-flex"
                   color="purple accent-3"
-                  width="190"
+                  width="210"
                   height="250"
                 >
                   <sheet-footer>
                    Relacionamento <v-icon color="black">mdi-heart</v-icon> 
+                   <hr color="black">
                   </sheet-footer>
                 </v-sheet>
                 <v-sheet
                   class="d-flex"
                   color="yellow darken-2"
-                  width="190"
+                  width="210"
                   height="250"
                 >
                   <sheet-footer>
                     Canais <v-icon color="black">mdi-truck-fast</v-icon>
+                    <hr color="black">
                   </sheet-footer>
                 </v-sheet>
               </v-row>
@@ -125,6 +140,7 @@
               >
                 <sheet-footer>
                   Segmento<v-icon color="black">mdi-human-handsup</v-icon>
+                  <hr color="black">
                 </sheet-footer>
               </v-sheet>
             </v-col>
@@ -139,10 +155,11 @@
                 class="d-flex"
                 color="light-green accent-4"
                 width="800"
-                height="200"
+                height="250"
               >
                 <sheet-footer>
                   Estrutura de Custos <v-icon color="black">mdi-script</v-icon>
+                  <hr color="black">
                 </sheet-footer>
               </v-sheet>
             </v-col>
@@ -157,10 +174,11 @@
                 class="d-flex"
                 color="red lighten-1"
                 width="800"
-                height="200"
+                height="250"
               >
                 <sheet-footer>
                   Fontes de Receita <v-icon color="black">mdi-cash-usd</v-icon>
+                  <hr color="black">
                 </sheet-footer>
               </v-sheet>
             </v-col>
@@ -286,5 +304,11 @@ export default {
 .theme--light.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined){
 background-color:#212121
 }
-
+sheet-footer {
+  padding-left: 10px;
+  padding-top: 15px
+}
+hr{
+  font-weight: bold
+}
 </style>

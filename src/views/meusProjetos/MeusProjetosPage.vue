@@ -109,18 +109,17 @@
           </div>
         </material-card>
       </v-flex>
-       <v-dialog
+      <v-dialog
         v-model="modalCompartilhar"
         persistente
         max-width="600">
         <v-card>
-           <v-card-title
+          <v-card-title
             style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
             primary-title
-          >Compartilhar
+          >Compartilhar projeto  {{ nomeProjeto }}?
           </v-card-title>
-          <v-container grid-list-md>
-          </v-container>
+          <v-container grid-list-md/>
           <v-card-actions>
             <v-spacer/>
             <v-btn
@@ -264,14 +263,13 @@ export default {
       this.getAllCanvas()
       this.modalDelete = false
     },
-    openModalCompartilhar() {
+    openModalCompartilhar () {
       this.modalCompartilhar = true
     },
-    canvasCompartilhado(){
+    canvasCompartilhado () {
       this.canvas.compartilharCanvas = true
       console.log('status do compartilhamento depois de aceitar => ' + (this.canvas.compartilharCanvas))
       this.modalCompartilhar = false
-
     },
     NomeDoUsuario () {
       if (this.account !== null || this.account.user !== null || this.account !== '' || this.account.user !== '') {

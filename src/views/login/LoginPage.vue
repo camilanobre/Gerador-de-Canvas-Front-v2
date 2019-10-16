@@ -283,7 +283,9 @@ export default {
       if (this.$refs.formCadastro.validate()) {
         console.log('Usuario a ser cadastrado: ' + JSON.stringify(this.usuario))
         this.register(this.usuario)
+        this.snackbar = true
         this.$refs.formCadastro.reset()
+        this.modalCadastro = false
       }
     },
     validate () {

@@ -17,7 +17,7 @@
         </div>
         {{ canvas }}
         <h2 style="text-align:center"> Projeto {{ canvas.nomeProjeto }}</h2>
-        <hr>
+        <hr >
         <v-row
           class="flex-child"
         >
@@ -34,9 +34,9 @@
               width="600"
             >
               <sheet-footer>
-                Parcerias Chave <v-icon color="black">mdi-account-key</v-icon>
+                Parcerias-Chave <v-icon color="black">mdi-account-key</v-icon>
                 <hr color="black">
-                <span>{{ canvas.parceirosChave }}</span>
+                <nl2br :text="canvas.parceirosChave "/>
               </sheet-footer>
             </v-sheet>
           </v-col>
@@ -51,12 +51,13 @@
               <v-sheet
                 class="d-flex"
                 color="lime accent-3"
-                width="210"
+                width="220"
                 height="250"
               >
                 <sheet-footer>
-                  Atividades Chave <v-icon color="black">mdi-worker</v-icon>
+                  Atividades-Chave <v-icon color="black">mdi-worker</v-icon>
                   <hr color="black">
+                  <nl2br :text="canvas.atividadesChave "/>
                 </sheet-footer>
               </v-sheet>
 
@@ -64,12 +65,13 @@
               <v-sheet
                 class="d-flex"
                 color="blue accent-4"
-                width="210"
+                width="220"
                 height="250"
               >
                 <sheet-footer>
-                  Recursos Chave <v-icon color="black">mdi-wrench</v-icon>
+                  Recursos-Chave <v-icon color="black">mdi-wrench</v-icon>
                   <hr color="black">
+                  <nl2br :text="canvas.recursosChave "/>
                 </sheet-footer>
               </v-sheet>
             </v-row>
@@ -90,6 +92,7 @@
               <sheet-footer>
                 Proposta de Valor <v-icon color="black">mdi-gift</v-icon>
                 <hr color="black">
+                <nl2br :text="canvas.propostaValor "/>
               </sheet-footer>
             </v-sheet>
           </v-col>
@@ -104,23 +107,25 @@
               <v-sheet
                 class="d-flex"
                 color="purple accent-3"
-                width="210"
+                width="220"
                 height="250"
               >
                 <sheet-footer>
                   Relacionamento <v-icon color="black">mdi-heart</v-icon>
                   <hr color="black">
+                  <nl2br :text="canvas.relacoesClientes "/>
                 </sheet-footer>
               </v-sheet>
               <v-sheet
                 class="d-flex"
                 color="yellow darken-2"
-                width="210"
+                width="220"
                 height="250"
               >
                 <sheet-footer>
                   Canais <v-icon color="black">mdi-truck-fast</v-icon>
                   <hr color="black">
+                  <nl2br :text="canvas.canaisVenda "/>
                 </sheet-footer>
               </v-sheet>
             </v-row>
@@ -141,6 +146,7 @@
               <sheet-footer>
                 Segmento<v-icon color="black">mdi-human-handsup</v-icon>
                 <hr color="black">
+                <nl2br :text="canvas.segmentosMercado "/>
               </sheet-footer>
             </v-sheet>
           </v-col>
@@ -160,6 +166,7 @@
               <sheet-footer>
                 Estrutura de Custos <v-icon color="black">mdi-script</v-icon>
                 <hr color="black">
+                <nl2br :text="canvas.estruturaCustos "/>
               </sheet-footer>
             </v-sheet>
           </v-col>
@@ -173,24 +180,18 @@
             <v-sheet
               class="d-flex"
               color="red lighten-1"
-              width="800"
+              width="850"
               height="250"
             >
               <sheet-footer>
                 Fontes de Receita <v-icon color="black">mdi-cash-usd</v-icon>
                 <hr color="black">
+                <nl2br :text="canvas.fontesRenda "/>
               </sheet-footer>
             </v-sheet>
           </v-col>
         </v-row>
-        <div id="botaoVoltar">
-          <v-btn
-            color="tertiary"
-            @click="voltar"
-          >
-            Voltar
-          </v-btn>
-        </div>
+
       </v-flex>
     </v-layout>
   </v-container>
@@ -219,7 +220,6 @@ export default {
       },
       SheetFooter: {
         functional: true,
-
         render (h, { children }) {
           return h('v-sheet', {
             staticClass: 'mt-auto align-center justify-center d-flex',

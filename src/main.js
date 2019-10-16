@@ -19,6 +19,27 @@ import store from '@/_store'
 sync(store, router)
 
 Vue.config.productionTip = false
+Vue.component('nl2br', {
+  functional: true,
+  props: {
+    text: {
+      type: String,
+      required: true
+    },
+    wrap: {
+      type: String,
+      default: 'div'
+    }
+  },
+  render (h, context) {
+    const lines = context.props.text.split('\n')
+    const linesWithBreaks = []
+    lines.forEach((line) => {
+      linesWithBreaks.push(line, h('br'))
+    })
+	  return h(context.props.wrap, linesWithBreaks).children
+  }
+})
 
 new Vue({
   vuetify,

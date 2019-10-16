@@ -20,6 +20,7 @@
             <v-icon left>mdi-plus-circle</v-icon>
             Novo projeto
           </v-btn>
+          {{ canvas }}
           <v-card-title>
             <v-text-field
               v-model="search"
@@ -58,14 +59,26 @@
             </template>
             <template v-slot:item.share="{ item }">
               <div class="text-center">
-                <v-btn
-                  text
-                  icon
-                  large
-                  color="black"
-                  @click="openModalCompartilhar(item)">
-                  <v-icon>mdi-share-variant</v-icon>
-                </v-btn>
+                <div v-if="canvas.compartilharCanvas == false">
+                  <v-btn
+                    text
+                    icon
+                    large
+                    color="red darken-4"
+                    @click="openModalCompartilhar(item)">
+                    <v-icon>mdi-share-variant</v-icon>
+                  </v-btn>
+                </div>
+                <div v-else>
+                  <v-btn
+                    text
+                    icon
+                    large
+                    color="green accent-4"
+                    @click="openModalCompartilhar(item)">
+                    <v-icon>mdi-share-variant</v-icon>
+                  </v-btn>
+                </div>
               </div>
             </template>
             <template v-slot:item.view="{ item }">
@@ -81,13 +94,22 @@
               </div>
             </template>
             <template v-slot:no-data>
-              <v-alert
-                :value="true"
-                color="deep-purple lighten-4"
-                icon="mdi-alert"
-              >
-                Não há projetos cadastrados :(
-              </v-alert>
+              <div v-if="stopLoading">
+                <v-progress-linear
+                  :indeterminate="true"
+                  background-color="blue lighten-4"
+                  color="primary"
+                />
+              </div>
+              <div v-else>
+                <v-alert
+                  :value="true"
+                  color="deep-purple lighten-4"
+                  icon="mdi-alert"
+                >
+                  Não há projetos cadastrados :(
+                </v-alert>
+              </div>
             </template>
             <template v-slot:no-results>
               <v-alert
@@ -128,12 +150,18 @@
               large
               @click="canvasCompartilhado()">
               Confirmar
+              <v-icon>
+                mdi-check
+              </v-icon>
             </v-btn>
             <v-btn
               color="red darken-1"
               text
               @click="modalCompartilhar = false">
               Cancelar
+              <v-icon>
+                mdi-close
+              </v-icon>
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -144,24 +172,35 @@
         max-width="600"
       >
         <v-card>
-          <v-card-title class="headline">
+          <v-card-title
+            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
+            primary-title
+          >
             O projeto será excluído!</v-card-title>
-          <v-card-text>
-            Tem certeza que deseja excluir o projeto {{ nomeProjeto }}??
+          <v-card-text style="font-size:17px !important"><br>
+            Tem certeza que deseja excluir o projeto {{ nomeProjeto }}?
           </v-card-text>
           <v-card-actions>
             <v-spacer/>
             <v-btn
-              color="green darken-1"
+              text
+              color="blue darken-1"
               @click="deletarTitular(idCanvas)"
             >
               Sim
+              <v-icon>
+                mdi-check
+              </v-icon>
             </v-btn>
             <v-btn
+              text
               color="red darken-1"
               @click="modalDelete = false"
             >
               Não
+              <v-icon>
+                mdi-close
+              </v-icon>
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -175,6 +214,7 @@ export default {
   data () {
     return {
       textoPaginacao: 'Exibir',
+      stopLoading: true,
       modalEdit: false,
       modalDelete: false,
       pagination: {
@@ -244,6 +284,9 @@ export default {
   created () {
     this.getAllCanvas()
   },
+  mounted () {
+    this.callFunction()
+  },
   methods: {
     ...mapActions('canvas', {
       getAllCanvas: 'getAll',
@@ -270,6 +313,12 @@ export default {
       this.canvas.compartilharCanvas = true
       console.log('status do compartilhamento depois de aceitar => ' + (this.canvas.compartilharCanvas))
       this.modalCompartilhar = false
+    },
+    callFunction: function () {
+      var v = this
+      setTimeout(function () {
+        v.stopLoading = false
+      }, 3000)
     },
     NomeDoUsuario () {
       if (this.account !== null || this.account.user !== null || this.account !== '' || this.account.user !== '') {

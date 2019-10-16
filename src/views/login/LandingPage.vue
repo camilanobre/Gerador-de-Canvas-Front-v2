@@ -2,18 +2,18 @@
   <v-img src="http://www.desktopimages.org/preview/get_photo/83351/2880/1800">
     <div>
       <v-app-bar
-        color="purple darken-4"
+        color="deep-purple darken-4"
         dark
       >
-        <div class="flex-grow-1"/>
-        <v-btn icon> Projetos Públicos
-          <v-icon>mdi-share-variant</v-icon>
-        </v-btn>
-        <div class="flex-grow-1"/>
-        <v-btn icon> Sobre Nós
-          <v-icon>mdi-human-handsup</v-icon>
-        </v-btn>
-        <div class="flex-grow-1"/>
+        <v-spacer />
+        <v-spacer />
+        <v-spacer />
+        <v-spacer />
+        <v-spacer />
+        <v-spacer />
+        <v-spacer />
+        <v-spacer />
+        <div class="flex-grow-2"/>
         <v-btn
           icon
           href="login"> Entrar/Cadastrar
@@ -193,12 +193,12 @@
                 </v-timeline-item>
 
                 <v-timeline-item
-                  color="deep-purple darken-4"
+                  color="light-blue darken-4"
                   fill-dot
                   right
                 >
                   <v-card>
-                    <v-card-title class="deep-purple darken-4">
+                    <v-card-title class="light-blue darken-4">
                       <v-icon
                         class="mr-4"
                         dark
@@ -221,7 +221,7 @@
                               class="ma-2"
                               x-large
                               href="login"
-                              color="indigo darken-4">Cadastre-se agora!</v-btn>
+                              color="light-blue darken-4">Cadastre-se agora!</v-btn>
                           </div>
                         </v-col>
                       </v-row>

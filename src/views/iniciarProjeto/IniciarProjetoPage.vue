@@ -574,6 +574,7 @@ export default {
         nomeProjeto: '',
         dataCriacaoProjeto: Date,
         idUsuario: '',
+        compartilharCanvas: true,
         parceirosChave: '',
         atividadesChave: '',
         recursosChave: '',
@@ -582,8 +583,7 @@ export default {
         canaisVenda: '',
         segmentosMercado: '',
         estruturaCustos: '',
-        fontesRenda: '',
-        compartilharCanvas: false
+        fontesRenda: ''
       },
       valid: true,
       projetoRules: [v => !!v || 'O campo nome do projeto é obrigatório']

@@ -214,6 +214,7 @@ export default {
   data () {
     return {
       usuario: {
+        idUsuario: '',
         nome: '',
         login: '',
         senha: '',

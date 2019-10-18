@@ -604,6 +604,9 @@ export default {
       businessCanvas: state => state.canvas.all.items
     })
   },
+  created () {
+    this.NomeDoUsuario()
+  },
   methods: {
     ...mapActions('canvas', {
       register: 'register'
@@ -640,6 +643,7 @@ export default {
       this.submitted = true
       if (this.$refs.form.validate()) {
         console.log('registando um novo canvas =>' + JSON.stringify(this.canvas))
+        console.log('' + this.canvas.idUsuario)
         this.register(this.canvas).then(
           this.snackbar = true,
           this.$refs.form.reset()
@@ -649,6 +653,7 @@ export default {
     NomeDoUsuario () {
       if (this.account.user !== null || this.account !== '' || this.account.user !== '') {
         this.account.user = JSON.parse(localStorage.getItem('usuario'))
+        this.canvas.idUsuario = this.account.user.value.idUsuario
         this.nomeUsuario = this.account.user.value.nome
         this.usuarioLogado = this.nomeUsuario
       }

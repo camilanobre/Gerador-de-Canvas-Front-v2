@@ -283,8 +283,8 @@ export default {
     }
   },
   created () {
-    this.getPorId()
-    console.log(' GET POR ID => ' + this.getPorId())
+    this.NomeDoUsuario()
+    this.getUsuario(this.canva.idUsuario)
   },
   mounted () {
     this.callFunction()
@@ -298,6 +298,17 @@ export default {
       getCanvasEdit: 'getCanvasEdit',
       getCanvasView: 'getCanvasView'
     }),
+    NomeDoUsuario () {
+      if (this.account.user !== null || this.account !== '' || this.account.user !== '') {
+        this.account.user = JSON.parse(localStorage.getItem('usuario'))
+        this.canva.idUsuario = this.account.user.value.idUsuario
+        this.nomeUsuario = this.account.user.value.nome
+        this.usuarioLogado = this.nomeUsuario
+      }
+    },
+    getUsuario (idUsuario) {
+      this.getPorId(idUsuario)
+    },
     openModalDelete (nomeProjeto, idCanvas) {
       this.nomeProjeto = nomeProjeto
       this.idCanvas = idCanvas
@@ -321,12 +332,6 @@ export default {
       setTimeout(function () {
         v.stopLoading = false
       }, 3000)
-    },
-    NomeDoUsuario () {
-      if (this.account !== null || this.account.user !== null || this.account !== '' || this.account.user !== '') {
-        this.account.user = JSON.parse(localStorage.getItem('usuario'))
-        this.nomeUsuario = this.account.user.value.nome
-      }
     }
   }
 }

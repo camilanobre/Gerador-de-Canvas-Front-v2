@@ -11,16 +11,8 @@
         lg12 >
         <material-card
           color="deep-purple"
-          title="Projetos"
+          title="Canvas Públicos"
         >
-          <v-btn
-            style="background-image:linear-gradient(to right, #9b62c0, #8a66c3, #796ac5, #666dc5, #526fc4);"
-            to="/iniciarProjeto"
-          >
-            <v-icon left>mdi-plus-circle</v-icon>
-            Novo projeto
-          </v-btn>
-          {{ canvas }}
           <v-card-title>
             <v-text-field
               v-model="search"
@@ -39,47 +31,11 @@
             hide-default-footer
             class="elevation-1"
           >
-            <template v-slot:item.edit="{ item }">
-              <v-btn
-                color="info"
-                @click="getCanvasEdit(item)"
-              >
-                <v-icon left>mdi-pencil-circle</v-icon>
-                Editar
-              </v-btn>
+            <template v-slot:item.autor="{ item }">
+              {{ nomeUsuario }}
             </template>
-            <template v-slot:item.delete="{ item }">
-              <v-btn
-                color="error"
-                @click="openModalDelete(item.nomeProjeto, item.idCanvas)"
-              >
-                <v-icon left>mdi-delete-circle</v-icon>
-                Excluir
-              </v-btn>
-            </template>
-            <template v-slot:item.share="{ item }">
-              <div class="text-center">
-                <div v-if="canvas.compartilharCanvas == false">
-                  <v-btn
-                    text
-                    icon
-                    large
-                    color="red darken-4"
-                    @click="openModalCompartilhar(item)">
-                    <v-icon>mdi-share-variant</v-icon>
-                  </v-btn>
-                </div>
-                <div v-else>
-                  <v-btn
-                    text
-                    icon
-                    large
-                    color="green accent-4"
-                    @click="openModalCompartilhar(item)">
-                    <v-icon>mdi-share-variant</v-icon>
-                  </v-btn>
-                </div>
-              </div>
+            <template v-slot:item.data="{ item }">
+              {{ nomeUsuario }}
             </template>
             <template v-slot:item.view="{ item }">
               <div class="text-center">
@@ -107,7 +63,7 @@
                   color="deep-purple lighten-4"
                   icon="mdi-alert"
                 >
-                  Não há projetos cadastrados :(
+                  Não há projetos compartilhados :(
                 </v-alert>
               </div>
             </template>
@@ -131,80 +87,6 @@
           </div>
         </material-card>
       </v-flex>
-      <v-dialog
-        v-model="modalCompartilhar"
-        persistente
-        max-width="600">
-        <v-card>
-          <v-card-title
-            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
-            primary-title
-          >Compartilhar projeto  {{ nomeProjeto }}?
-          </v-card-title>
-          <v-container grid-list-md/>
-          <v-card-actions>
-            <v-spacer/>
-            <v-btn
-              color="blue darken-1"
-              text
-              large
-              @click="canvasCompartilhado()">
-              Confirmar
-              <v-icon>
-                mdi-check
-              </v-icon>
-            </v-btn>
-            <v-btn
-              color="red darken-1"
-              text
-              @click="modalCompartilhar = false">
-              Cancelar
-              <v-icon>
-                mdi-close
-              </v-icon>
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-      <v-dialog
-        v-model="modalDelete"
-        persistent
-        max-width="600"
-      >
-        <v-card>
-          <v-card-title
-            style="background-image: linear-gradient(to right, #874dae, #8362be, #7f75cc, #7e87d8, #7f98e1);"
-            primary-title
-          >
-            O projeto será excluído!</v-card-title>
-          <v-card-text style="font-size:17px !important"><br>
-            Tem certeza que deseja excluir o projeto {{ nomeProjeto }}?
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer/>
-            <v-btn
-              text
-              color="blue darken-1"
-              @click="deletarTitular(idCanvas)"
-            >
-              Sim
-              <v-icon>
-                mdi-check
-              </v-icon>
-            </v-btn>
-            <v-btn
-              text
-              color="red darken-1"
-              @click="modalDelete = false"
-            >
-              Não
-              <v-icon>
-                mdi-close
-              </v-icon>
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
     </v-layout>
   </v-container>
 </template>
@@ -231,7 +113,6 @@ export default {
       canva: {
         idCanvas: '',
         nomeProjeto: '',
-        autor: '',
         dataCriacaoProjeto: Date,
         idUsuario: '',
         parceirosChave: '',
@@ -251,9 +132,8 @@ export default {
           align: 'left',
           value: 'nomeProjeto'
         },
-        { text: 'Editar', align: 'center', value: 'edit', sortable: false },
-        { text: 'Excluir', align: 'center', value: 'delete', sortable: false },
-        { text: 'Compartilhar', align: 'center', value: 'share', sortable: false },
+        { text: 'Autor', align: 'center', value: 'autor', sortable: false },
+        { text: 'Data de Criação', align: 'center', value: 'data', sortable: false },
         { text: 'Detalhar', align: 'center', value: 'view', sortable: false }
       ]
     }
@@ -283,15 +163,14 @@ export default {
     }
   },
   created () {
-    this.getPorId()
-    console.log(' GET POR ID => ' + this.getPorId())
+    this.getAllCanvas()
   },
   mounted () {
     this.callFunction()
   },
   methods: {
     ...mapActions('canvas', {
-      getPorId: 'getPorId',
+      getAllCanvas: 'getAll',
       delete: 'delete'
     }),
     ...mapActions('editCanvas', {
@@ -305,7 +184,7 @@ export default {
     },
     deletarTitular (idCanvas) {
       this.delete(idCanvas)
-      this.getPorId()
+      this.getAllCanvas()
       this.modalDelete = false
     },
     openModalCompartilhar () {

@@ -47,15 +47,20 @@
                     <v-card
                       class="mb-5"
                       height="100%">
-                      <v-flex
-                        xs12
-                        sm6
-                        md8>
+                      <v-flex xs10>
                         <v-text-field
                           v-model= "canvas.nomeProjeto"
                           :rules="projetoRules"
                           label="Nome do Projeto"
                           placeholder="Qual será o nome do seu projeto?"
+                        />
+                      </v-flex>
+                      <v-flex xs10>
+                        <v-text-field
+                          v-model= "canvas.autor"
+                          :rules="autorRules"
+                          label="Autor do Projeto"
+                          placeholder="Informe o nome do autor do projeto"
                         />
                       </v-flex>
                       <v-flex xs12>
@@ -571,6 +576,7 @@ export default {
       modalCustos: false,
       canvas: {
         idCanvas: '',
+        autor: '',
         nomeProjeto: '',
         dataCriacaoProjeto: Date,
         idUsuario: '',
@@ -586,7 +592,8 @@ export default {
         fontesRenda: ''
       },
       valid: true,
-      projetoRules: [v => !!v || 'O campo nome do projeto é obrigatório']
+      projetoRules: [v => !!v || 'O campo nome do projeto é obrigatório!'],
+      autorRules: [v => !!v || 'Informe no mínimo um autor!']
     }
   },
   computed: {

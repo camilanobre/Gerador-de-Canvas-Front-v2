@@ -47,15 +47,20 @@
                     <v-card
                       class="mb-5"
                       height="100%">
-                      <v-flex
-                        xs12
-                        sm6
-                        md8>
+                      <v-flex xs10>
                         <v-text-field
                           v-model= "canvas.nomeProjeto"
                           :rules="projetoRules"
                           label="Nome do Projeto"
                           placeholder="Qual será o nome do seu projeto?"
+                        />
+                      </v-flex>
+                      <v-flex xs10>
+                        <v-text-field
+                          v-model= "canvas.autor"
+                          :rules="autorRules"
+                          label="Autor do Projeto"
+                          placeholder="Informe o nome do autor do projeto"
                         />
                       </v-flex>
                       <v-flex xs12>
@@ -583,10 +588,12 @@ export default {
         segmentosMercado: this.$store.state.editCanvas.canvasEdit.segmentosMercado,
         estruturaCustos: this.$store.state.editCanvas.canvasEdit.estruturaCustos,
         fontesRenda: this.$store.state.editCanvas.canvasEdit.fontesRenda,
-        compartilharCanvas: this.$store.state.editCanvas.canvasEdit.compartilharCanvas
+        compartilharCanvas: this.$store.state.editCanvas.canvasEdit.compartilharCanvas,
+        autor: this.$store.state.editCanvas.canvasEdit.autor
       },
       valid: true,
-      projetoRules: [v => !!v || 'O campo nome do projeto é obrigatório']
+      projetoRules: [v => !!v || 'O campo nome do projeto é obrigatório!'],
+      autorRules: [v => !!v || 'Informe no mínimo um autor!']
     }
   },
   computed: {

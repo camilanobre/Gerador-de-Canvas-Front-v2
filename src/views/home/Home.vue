@@ -182,6 +182,7 @@
                           :elevation="hover ? 12 : 2"
                           x-large
                           width="600px"
+                          href="/iniciarProjeto"
                           style="background:linear-gradient(to left, #9b62c0, #8a66c3, #796ac5, #666dc5, #526fc4);" >
                           Criar um Canvas
                         </v-btn>
@@ -202,6 +203,7 @@
                           :elevation="hover ? 12 : 2"
                           x-large
                           width="600px"
+                          href="meusProjetos"
                           style="background-image:linear-gradient(to right, #9b62c0, #8a66c3, #796ac5, #666dc5, #526fc4);"
                           dark>
                           Meus Canvas

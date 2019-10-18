@@ -91,7 +91,7 @@ export default {
         divider: true
       },
       {
-        to: '',
+        to: '/projetosCompartilhados',
         icon: 'mdi-share-variant',
         text: 'Projetos Públicos',
         divider: true

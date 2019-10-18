@@ -11,6 +11,16 @@ export default {
   getAllFailure (state, error) {
     state.all = { error }
   },
+  getPorIdRequest (state) {
+    state.all = { loading: true }
+  },
+  getPorIdSuccess (state, canvas) {
+    state.all = { items: canvas }
+  },
+  getPorIdFailure (state, error) {
+    state.all = { error }
+  },
+
   registerRequest (state, canvas) {
     state.status = { registering: true }
   },

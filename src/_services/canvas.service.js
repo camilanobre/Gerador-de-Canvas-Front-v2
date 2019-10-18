@@ -3,6 +3,7 @@ import { userService, config } from '.'
 
 export const canvasService = {
   getAll,
+  getPorId,
   register,
   update,
   delete: _delete
@@ -14,6 +15,13 @@ function getAll () {
     headers: authHeader()
   }
   return fetch(`${config.apiUrl}/Canvas/ObterTodosCanvas`, requestOptions).then(handleResponse)
+}
+function getPorId (idUsuario) {
+  const requestOptions = {
+    method: 'GET',
+    headers: authHeader()
+  }
+  return fetch(`${config.apiUrl}/Canvas/ObterTodosCanvasUsuario/${idUsuario}`, requestOptions).then(handleResponse)
 }
 function register (canvas) {
   const requestOptions = {

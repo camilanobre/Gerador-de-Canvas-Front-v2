@@ -3,17 +3,17 @@
     <div>
       <v-app-bar
         color="deep-purple darken-4"
-        dark
-      >
-        <v-spacer />
-        <v-spacer />
-        <v-spacer />
-        <v-spacer />
-        <v-spacer />
-        <v-spacer />
-        <v-spacer />
-        <v-spacer />
+        dark >
         <div class="flex-grow-2"/>
+        <v-spacer/>
+        <v-spacer/>
+        <v-btn
+          icon
+          href="projetosPublicos"> Projetos Compartilhados
+          <v-icon>mdi-share-variant</v-icon>
+        </v-btn>
+        <div class="flex-grow-1"/>
+        <v-spacer/>
         <v-btn
           icon
           href="login"> Entrar/Cadastrar

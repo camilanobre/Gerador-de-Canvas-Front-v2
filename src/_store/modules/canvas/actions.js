@@ -10,6 +10,14 @@ export default {
         error => commit('getAllFailure', error)
       )
   },
+  getPorId ({ commit }, id) {
+    commit('getPorIdRequest')
+    canvasService.getPorId(id)
+      .then(
+        canvas => commit('getPorIdSuccess', canvas),
+        error => commit('getPorIdFailure', error)
+      )
+  },
   update ({ dispatch, commit }, canvas) {
     commit('registerRequest', canvas)
     canvasService.update(canvas)

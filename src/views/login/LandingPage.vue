@@ -1,5 +1,5 @@
 <template>
-  <v-img src="http://www.desktopimages.org/preview/get_photo/83351/2880/1800">
+  <v-img src="./img/wallpaper.jpg">
     <div>
       <v-app-bar
         color="deep-purple darken-4"
@@ -243,7 +243,7 @@
                   >
                     <v-img
                       height="300px"
-                      src="http://www.albertacapital.online/images/illustration-01-95b432defb91396da68559d437fa033701513b827291d2f976466601ab8f2c6f.png"
+                      src="./img/img1.png"
                     >
                       <v-expand-transition>
                         <div
@@ -270,7 +270,7 @@
                   >
                     <v-img
                       height="300px"
-                      src="https://startups-sururuvalley.sfo2.cdn.digitaloceanspaces.com/2019/02/startup.png"
+                      src="./img/img2.png"
                     >
                       <v-expand-transition>
                         <div

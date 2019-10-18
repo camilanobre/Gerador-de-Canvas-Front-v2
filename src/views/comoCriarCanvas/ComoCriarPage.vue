@@ -13,7 +13,7 @@
           align="center"
           justify="center">
           <v-img
-            src="https://www.empreendedorismo-comunicacao-junior.com/empreendedorismo-comunicacao.png"
+            src="./img/empreender.png"
             aspect-ratio="1"
             max-width="250"
             max-height="500"
@@ -115,7 +115,7 @@
           align="center"
           justify="center">
           <v-img
-            src="https://comocriarumbloglucrativo.com/wp-content/uploads/2016/05/pensamento-empreendedor2.png"
+            src="./img/pensar.png"
             aspect-ratio="1"
             max-width="350"
             max-height="200"

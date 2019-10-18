@@ -59,31 +59,31 @@
                     lg4
                     xl4
                   >
-                  <v-hover v-slot:default="{ hover }">
-                    <v-card 
-                      :elevation="hover ? 12 : 2"
-                      :flat="flat"
-                      :loading="loading"
-                      :outlined="outlined"
-                      :raised="raised"
-                      :width="width"
-                      :height="height"
-                      class="mx-auto"
-                      max-width="350"
-                    >
-                      <v-img
-                        v-if="media"
-                        class="white--text"
-                        height="200px"
-                        src="https://www.almi.se/globalassets/almi/kunskapsbanken/business-model-canvas/almi-business-model-canvas.jpg"
-                      />
-                      <v-card-text style="text-align: justify">
-                        O Canvas agiliza e facilita o processo estratégico.
-                        É uma ferramenta flexível e de fácil compreensão.
-                        Sua visualização estratégica aumenta a competitividade. <br><br><br>
-                      </v-card-text>
-                    </v-card>
-                  </v-hover>
+                    <v-hover v-slot:default="{ hover }">
+                      <v-card
+                        :elevation="hover ? 12 : 2"
+                        :flat="flat"
+                        :loading="loading"
+                        :outlined="outlined"
+                        :raised="raised"
+                        :width="width"
+                        :height="height"
+                        class="mx-auto"
+                        max-width="350"
+                      >
+                        <v-img
+                          v-if="media"
+                          class="white--text"
+                          height="200px"
+                          src="./img/home1.jpg"
+                        />
+                        <v-card-text style="text-align: justify">
+                          O Canvas agiliza e facilita o processo estratégico.
+                          É uma ferramenta flexível e de fácil compreensão.
+                          Sua visualização estratégica aumenta a competitividade. <br><br><br>
+                        </v-card-text>
+                      </v-card>
+                    </v-hover>
                   </v-flex>
                   <v-flex
                     xs12
@@ -92,127 +92,127 @@
                     lg4
                     xl8
                   >
-                  <v-hover v-slot:default="{ hover }">
-                    <v-card
-                      :elevation="hover ? 12 : 2"
-                      :flat="flat"
-                      :loading="loading"
-                      :outlined="outlined"
-                      :raised="raised"
-                      :width="width"
-                      :height="height"
-                      class="mx-auto"
-                    >
-                      <v-img
-                        v-if="media"
-                        class="white--text"
-                        height="200px"
-                        src="https://tbkconsult.com/wp-content/uploads/bfi_thumb/Working-the-canvas-500x500-mr98wwf32lbvpatrqbgvey4liosv2dt5l6b1eahk18.png"
-                      />
-                      <v-card-text style="text-align: justify">
-                        O Canvas é utilizado
-                        seja para a construção de novos modelos de negócios ou na expansão de
-                        empreendimentos que já existem,
-                        tendo ganhado grande destaque, especialmente pela simplicidade e eficiência.
-                      </v-card-text>
-                    </v-card>
-                  </v-hover>
+                    <v-hover v-slot:default="{ hover }">
+                      <v-card
+                        :elevation="hover ? 12 : 2"
+                        :flat="flat"
+                        :loading="loading"
+                        :outlined="outlined"
+                        :raised="raised"
+                        :width="width"
+                        :height="height"
+                        class="mx-auto"
+                      >
+                        <v-img
+                          v-if="media"
+                          class="white--text"
+                          height="200px"
+                          src="./img/home2.png"
+                        />
+                        <v-card-text style="text-align: justify">
+                          O Canvas é utilizado
+                          seja para a construção de novos modelos de negócios ou na expansão de
+                          empreendimentos que já existem,
+                          tendo ganhado grande destaque, especialmente pela simplicidade e eficiência.
+                        </v-card-text>
+                      </v-card>
+                    </v-hover>
                   </v-flex>
                   <v-flex
-                      xs12
-                      sm12
-                      md4
-                      lg4
-                      xl4
-                    >
-                  <v-hover v-slot:default="{ hover }">
-                    <v-card
-                      :elevation="hover ? 12 : 2"
-                      :flat="flat"
-                      :loading="loading"
-                      :outlined="outlined"
-                      :raised="raised"
-                      :width="width"
-                      :height="height"
-                      class="mx-auto">
-                      <v-img
-                        v-if="media"
-                        class="white--text"
-                        height="200px"
-                        src="https://robsoncamargo.com.br/files/thumbs/xblog_0321-pm-canvas-2-800x333.png,qv=1566996233.pagespeed.ic.i6CtVsFdRX.png"
-                      />
-                      <v-card-text style="text-align: justify">
-                        O Canvas uma das ferramentas mais utilizadas por empreendedores e
-                        empresas para iniciar um negócio ou para inovar em empresas já constituídas. <br><br><br>
-                      </v-card-text>
-                    </v-card>
-                  </v-hover>
+                    xs12
+                    sm12
+                    md4
+                    lg4
+                    xl4
+                  >
+                    <v-hover v-slot:default="{ hover }">
+                      <v-card
+                        :elevation="hover ? 12 : 2"
+                        :flat="flat"
+                        :loading="loading"
+                        :outlined="outlined"
+                        :raised="raised"
+                        :width="width"
+                        :height="height"
+                        class="mx-auto">
+                        <v-img
+                          v-if="media"
+                          class="white--text"
+                          height="200px"
+                          src="./img/home3.png"
+                        />
+                        <v-card-text style="text-align: justify">
+                          O Canvas uma das ferramentas mais utilizadas por empreendedores e
+                          empresas para iniciar um negócio ou para inovar em empresas já constituídas. <br><br><br>
+                        </v-card-text>
+                      </v-card>
+                    </v-hover>
                   </v-flex>
                 </v-layout>
               </v-container>
             </template>
           </v-flex>
         </v-layout>
-          <v-container
-        grid-list-md
-        text-xs-center
-      >
-        <v-layout
-          row
-          wrap
+        <v-container
+          grid-list-md
+          text-xs-center
         >
-          <v-flex xs12>
-        <v-card
-          class="mx-auto"
-          height="200"
-          style="background: #EDEBEE;"
-        >
-          <v-card-title style="color: black; text-align: center">Pronto para começar ?</v-card-title>
-          <v-card-actions>
-            <v-flex
-                xs12
-                sm12
-                md6
-                lg6
-                xl6
+          <v-layout
+            row
+            wrap
+          >
+            <v-flex xs12>
+              <v-card
+                class="mx-auto"
+                height="200"
+                style="background: #EDEBEE;"
               >
-            <div class="my-2">
-              <v-hover v-slot:default="{ hover }">
-                <v-btn
-                  :elevation="hover ? 12 : 2"
-                  x-large
-                  width="600px"
-                  style="background:linear-gradient(to left, #9b62c0, #8a66c3, #796ac5, #666dc5, #526fc4);" >
-                  Criar um Canvas
-                </v-btn>
-              </v-hover>
-            </div>
+                <v-card-title style="color: black; text-align: center">Pronto para começar ?</v-card-title>
+                <v-card-actions>
+                  <v-flex
+                    xs12
+                    sm12
+                    md6
+                    lg6
+                    xl6
+                  >
+                    <div class="my-2">
+                      <v-hover v-slot:default="{ hover }">
+                        <v-btn
+                          :elevation="hover ? 12 : 2"
+                          x-large
+                          width="600px"
+                          style="background:linear-gradient(to left, #9b62c0, #8a66c3, #796ac5, #666dc5, #526fc4);" >
+                          Criar um Canvas
+                        </v-btn>
+                      </v-hover>
+                    </div>
+                  </v-flex>
+                  <v-spacer/>
+                  <v-flex
+                    xs12
+                    sm12
+                    md6
+                    lg6
+                    xl6
+                  >
+                    <div class="my-2">
+                      <v-hover v-slot:default="{ hover }">
+                        <v-btn
+                          :elevation="hover ? 12 : 2"
+                          x-large
+                          width="600px"
+                          style="background-image:linear-gradient(to right, #9b62c0, #8a66c3, #796ac5, #666dc5, #526fc4);"
+                          dark>
+                          Meus Canvas
+                        </v-btn>
+                      </v-hover>
+                    </div>
+                  </v-flex>
+                </v-card-actions>
+              </v-card>
             </v-flex>
-            <v-spacer/>
-            <v-flex
-                xs12
-                sm12
-                md6
-                lg6
-                xl6
-              >
-            <div class="my-2">
-              <v-hover v-slot:default="{ hover }">
-                <v-btn
-                  :elevation="hover ? 12 : 2"
-                  x-large
-                  width="600px"
-                  style="background-image:linear-gradient(to right, #9b62c0, #8a66c3, #796ac5, #666dc5, #526fc4);"
-                  dark>
-                  Meus Canvas
-                </v-btn>
-              </v-hover>
-            </div>
-            </v-flex>
-          </v-card-actions>
-         </v-card>
-        </v-flex>
-        </v-layout>
+          </v-layout>
         </v-container>
       </v-container>
       <v-footer>

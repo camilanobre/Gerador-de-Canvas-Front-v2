@@ -109,7 +109,7 @@
                       @click="passo = 2">Continuar</v-btn>
                     <v-btn
                       style="background-image: linear-gradient(to right, #3264f5 51%, #7202bb 100%)"
-                      to="/">Cancelar</v-btn>
+                      to="/meusProjetos">Cancelar</v-btn>
                   </v-stepper-content>
                   <!-- passo dois -->
                   <v-stepper-content step="2">
@@ -307,6 +307,18 @@
             <v-btn
               flat
               @click="snackbar = false">
+              <v-icon left>mdi-close-circle</v-icon>
+            </v-btn>
+          </v-snackbar>
+          <v-snackbar
+            v-model="snackbarError"
+            :timeout="timeout"
+            color="warning"
+            top>
+            {{ textoError }}
+            <v-btn
+              text
+              @click="snackbarError = false">
               <v-icon left>mdi-close-circle</v-icon>
             </v-btn>
           </v-snackbar>
@@ -563,7 +575,9 @@ export default {
       row: null,
       passo: 0,
       snackbar: false,
-      textoCadastro: 'Cadastrado com sucesso!',
+      snackbarError: false,
+      textoError: 'Verifique os campos obrigatórios!',
+      textoCadastro: 'Salvo com sucesso!',
       timeout: 4000,
       modalProposta: false,
       modalSegmento: false,
@@ -649,6 +663,9 @@ export default {
         this.update(this.canvas).then(
           this.$refs.form.reset()
         )
+      } else {
+        this.snackbarError = true
+        this.passo = 1
       }
     },
     NomeDoUsuario () {

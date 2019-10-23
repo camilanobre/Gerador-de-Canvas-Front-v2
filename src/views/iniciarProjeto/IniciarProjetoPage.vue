@@ -310,6 +310,18 @@
               <v-icon left>mdi-close-circle</v-icon>
             </v-btn>
           </v-snackbar>
+          <v-snackbar
+            v-model="snackbarError"
+            :timeout="timeout"
+            color="warning"
+            top>
+            {{ textoError }}
+            <v-btn
+              text
+              @click="snackbarError = false">
+              <v-icon left>mdi-close-circle</v-icon>
+            </v-btn>
+          </v-snackbar>
         </material-card>
       </v-flex>
       <v-dialog
@@ -563,7 +575,9 @@ export default {
       row: null,
       passo: 0,
       snackbar: false,
+      snackbarError: false,
       textoCadastro: 'Cadastrado com sucesso!',
+      textoError: 'Verifique os campos obrigatórios!',
       timeout: 4000,
       modalProposta: false,
       modalSegmento: false,
@@ -576,11 +590,10 @@ export default {
       modalCustos: false,
       canvas: {
         idCanvas: '',
-        autor: '',
         nomeProjeto: '',
         dataCriacaoProjeto: Date,
         idUsuario: '',
-        compartilharCanvas: true,
+        compartilharCanvas: false,
         parceirosChave: '',
         atividadesChave: '',
         recursosChave: '',
@@ -589,7 +602,8 @@ export default {
         canaisVenda: '',
         segmentosMercado: '',
         estruturaCustos: '',
-        fontesRenda: ''
+        fontesRenda: '',
+        autor: ''
       },
       valid: true,
       projetoRules: [v => !!v || 'O campo nome do projeto é obrigatório!'],
@@ -648,6 +662,9 @@ export default {
           this.snackbar = true,
           this.$refs.form.reset()
         )
+      } else {
+        this.snackbarError = true
+        this.passo = 1
       }
     },
     NomeDoUsuario () {

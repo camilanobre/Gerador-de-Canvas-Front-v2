@@ -59,7 +59,7 @@
             </template>
             <template v-slot:item.share="{ item }">
               <div class="text-center">
-                <div v-if="canvas.compartilharCanvas == false">
+                <div v-if="canva.compartilharCanvas == false">
                   <v-btn
                     text
                     icon
@@ -69,7 +69,7 @@
                     <v-icon>mdi-share-variant</v-icon>
                   </v-btn>
                 </div>
-                <div v-else>
+                <div v-if="canva.compartilharCanvas == true">
                   <v-btn
                     text
                     icon
@@ -185,7 +185,7 @@
             <v-btn
               text
               color="blue darken-1"
-              @click="deletarTitular(idCanvas)"
+              @click="deletarCanvas(idCanvas)"
             >
               Sim
               <v-icon>
@@ -226,6 +226,7 @@ export default {
       timeout: 4000,
       search: '',
       modalCompartilhar: false,
+      canvasTemp: '',
       nomeUsuario: '',
       nomeProjeto: '',
       canva: {
@@ -292,6 +293,7 @@ export default {
   methods: {
     ...mapActions('canvas', {
       getPorId: 'getPorId',
+      update: 'update',
       delete: 'delete'
     }),
     ...mapActions('editCanvas', {
@@ -314,17 +316,20 @@ export default {
       this.idCanvas = idCanvas
       this.modalDelete = true
     },
-    deletarTitular (idCanvas) {
+    deletarCanvas (idCanvas) {
       this.delete(idCanvas)
       this.getPorId()
       this.modalDelete = false
     },
-    openModalCompartilhar () {
+    openModalCompartilhar (cnv) {
+      this.canvasTemp = cnv
       this.modalCompartilhar = true
     },
     canvasCompartilhado () {
-      this.canvas.compartilharCanvas = true
-      console.log('status do compartilhamento depois de aceitar => ' + (this.canvas.compartilharCanvas))
+      this.canvasTemp.compartilharCanvas = this.canva.compartilharCanvas
+      this.canvasTemp.compartilharCanvas = true
+      console.log('status do compartilhamento depois de aceitar => ' + (this.canva.compartilharCanvas))
+      this.update(this.canvasTemp)
       this.modalCompartilhar = false
     },
     callFunction: function () {

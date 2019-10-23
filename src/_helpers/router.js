@@ -3,12 +3,13 @@ import Router from 'vue-router'
 import Home from '../views/home/Home'
 import LoginPage from '../views/login/LoginPage'
 import ComoCriarPage from '../views/comoCriarCanvas/ComoCriarPage'
-import IniciarProjetoPage from '../views/iniciarProjeto/IniciarProjetoPage'
+import IniciarProjetoPage from '../views/meusProjetos/IniciarProjetoPage'
 import SobrePage from '../views/sobre/SobrePage'
 import MeusProjetosPage from '../views/meusProjetos/MeusProjetosPage'
 import EditarMeusProjetosPage from '../views/meusProjetos/EditarMeusProjetosPage'
 import DetalharMeusProjetosPage from '../views/meusProjetos/DetalharMeusProjetosPage'
 import ProjetosCompartilhadosPage from '../views/meusProjetos/ProjetosCompartilhadosPage'
+import DetalharProjetosPublicosPage from '../views/meusProjetos/DetalharProjetosPublicosPage'
 import ProjetosPublicosPage from '../views/login/ProjetosPublicosPage'
 import LandingPage from '../views/login/LandingPage'
 
@@ -26,6 +27,7 @@ export const router = new Router({
     { path: '/editarMeusProjetos', name: 'Editar Projeto', component: EditarMeusProjetosPage },
     { path: '/detalharMeusProjetos', name: 'Detalhar Projeto', component: DetalharMeusProjetosPage },
     { path: '/projetosCompartilhados', name: 'Projetos Compartilhados', component: ProjetosCompartilhadosPage },
+    { path: '/detalharProjetosPublicos', name: 'Detalhar Projeto', component: DetalharProjetosPublicosPage },
     { path: '/sobre', name: 'Sobre nós', component: SobrePage },
     { path: '/projetosPublicos,', component: ProjetosPublicosPage },
     { path: '/landingPage', component: LandingPage }

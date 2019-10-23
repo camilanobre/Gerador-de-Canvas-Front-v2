@@ -13,6 +13,7 @@
           color="deep-purple"
           title="Canvas Públicos"
         >
+          {{ canvas }}
           <v-card-title>
             <v-text-field
               v-model="search"
@@ -24,7 +25,7 @@
           </v-card-title>
           <v-data-table
             :headers="headers"
-            :items="canvas"
+            :items="canvasCompartilhados"
             :search="search"
             :options.sync="pagination"
             :items-per-page-text="textoPaginacao"
@@ -32,10 +33,10 @@
             class="elevation-1"
           >
             <template v-slot:item.autor="{ item }">
-              {{ nomeUsuario }}
+              {{ item.autor }}
             </template>
-            <template v-slot:item.data="{ item }">
-              {{ nomeUsuario }}
+            <template v-slot:item.dataCriacaoProjeto="{ item }">
+              {{ moment(item.dataCriacaoProjeto).parseZone().format("DD/MM/YYYY") }}
             </template>
             <template v-slot:item.view="{ item }">
               <div class="text-center">
@@ -92,13 +93,12 @@
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
+import moment from 'moment'
 export default {
   data () {
     return {
       textoPaginacao: 'Exibir',
       stopLoading: true,
-      modalEdit: false,
-      modalDelete: false,
       pagination: {
         descending: false,
         page: 1,
@@ -107,12 +107,12 @@ export default {
       },
       timeout: 4000,
       search: '',
-      modalCompartilhar: false,
       nomeUsuario: '',
       nomeProjeto: '',
       canva: {
         idCanvas: '',
         nomeProjeto: '',
+        autor: '',
         dataCriacaoProjeto: Date,
         idUsuario: '',
         parceirosChave: '',
@@ -124,16 +124,12 @@ export default {
         segmentosMercado: '',
         estruturaCustos: '',
         fontesRenda: '',
-        compartilharCanvas: false
+        compartilharCanvas: true
       },
       headers: [
-        {
-          text: 'Projeto',
-          align: 'left',
-          value: 'nomeProjeto'
-        },
+        { text: 'Projeto', align: 'left', value: 'nomeProjeto' },
         { text: 'Autor', align: 'center', value: 'autor', sortable: false },
-        { text: 'Data de Criação', align: 'center', value: 'data', sortable: false },
+        { text: 'Data de Criação', align: 'center', value: 'dataCriacaoProjeto', sortable: false },
         { text: 'Detalhar', align: 'center', value: 'view', sortable: false }
       ]
     }
@@ -148,6 +144,13 @@ export default {
     ...mapState({
       editCanvas: state => state.editCanvas.canvasEdit
     }),
+    canvasCompartilhados () {
+      if (this.canvas !== undefined) {
+        return this.canvas.filter((q) => {
+          return (q.compartilharCanvas !== false)
+        })
+      }
+    },
     pages () {
       try {
         // eslint-disable-next-line vue/no-side-effects-in-computed-properties
@@ -164,37 +167,19 @@ export default {
   },
   created () {
     this.getAllCanvas()
+    moment.locale('pt')
   },
   mounted () {
     this.callFunction()
   },
   methods: {
+    moment,
     ...mapActions('canvas', {
-      getAllCanvas: 'getAll',
-      delete: 'delete'
+      getAllCanvas: 'getAll'
     }),
     ...mapActions('editCanvas', {
-      getCanvasEdit: 'getCanvasEdit',
       getCanvasView: 'getCanvasView'
     }),
-    openModalDelete (nomeProjeto, idCanvas) {
-      this.nomeProjeto = nomeProjeto
-      this.idCanvas = idCanvas
-      this.modalDelete = true
-    },
-    deletarTitular (idCanvas) {
-      this.delete(idCanvas)
-      this.getAllCanvas()
-      this.modalDelete = false
-    },
-    openModalCompartilhar () {
-      this.modalCompartilhar = true
-    },
-    canvasCompartilhado () {
-      this.canvas.compartilharCanvas = true
-      console.log('status do compartilhamento depois de aceitar => ' + (this.canvas.compartilharCanvas))
-      this.modalCompartilhar = false
-    },
     callFunction: function () {
       var v = this
       setTimeout(function () {

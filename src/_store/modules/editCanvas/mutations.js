@@ -9,6 +9,10 @@ export default {
     state.canvasEdit = canvas
     router.push('/detalharMeusProjetos')
   },
+  getCanvasViewPublico (state, canvas) {
+    state.canvasEdit = canvas
+    router.push('/detalharProjetosPublicos')
+  },
   registerRequest (state, canvas) {
     state.status = { registering: true }
   },

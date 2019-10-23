@@ -45,7 +45,7 @@
                   icon
                   large
                   color="black"
-                  @click="getCanvasView(item)">
+                  @click="getCanvasViewPublico(item)">
                   <v-icon>mdi-magnify-plus</v-icon>
                 </v-btn>
               </div>
@@ -128,7 +128,7 @@ export default {
       },
       headers: [
         { text: 'Projeto', align: 'left', value: 'nomeProjeto' },
-        { text: 'Autor', align: 'center', value: 'autor', sortable: false },
+        { text: 'Autor', align: 'center', value: 'autor' },
         { text: 'Data de Criação', align: 'center', value: 'dataCriacaoProjeto', sortable: false },
         { text: 'Detalhar', align: 'center', value: 'view', sortable: false }
       ]
@@ -178,7 +178,7 @@ export default {
       getAllCanvas: 'getAll'
     }),
     ...mapActions('editCanvas', {
-      getCanvasView: 'getCanvasView'
+      getCanvasViewPublico: 'getCanvasViewPublico'
     }),
     callFunction: function () {
       var v = this

@@ -69,6 +69,7 @@
                           label="Proposta de Valor"
                           placeholder="Informe a sua proposta de valor"
                           hint="Alguma dúvida? Clica no ícone de interrogação!"
+                          @keyup="addTopico"
                         >
                           <template v-slot:append-outer>
                             <v-btn
@@ -652,6 +653,9 @@ export default {
     },
     openModalCustos () {
       this.modalCustos = true
+    },
+    addTopico () {
+      '*'
     },
     handleSubmit () {
       this.submitted = true

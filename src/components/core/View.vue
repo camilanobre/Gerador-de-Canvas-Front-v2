@@ -12,7 +12,7 @@
 export default {
   metaInfo () {
     return {
-      title: 'Modelo Template'
+      title: 'Meu Canvas - Projeto PIVIII'
     }
   }
 }

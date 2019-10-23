@@ -15,7 +15,11 @@
             Voltar
           </v-btn>
         </div>
-        {{ canvas }}
+        <!-- img
+          src="https://cdn0.iconfinder.com/data/icons/idea-filled-outline/512/13_air_cloud_brainstorm_storm_bulb_idea_light-512.png"
+          alt="Logo"
+          class="logo-prefeitura"
+        > -->
         <h2 style="text-align:center"> Projeto {{ canvas.nomeProjeto }}</h2>
         <hr >
         <v-row
@@ -216,7 +220,8 @@ export default {
         canaisVenda: this.$store.state.editCanvas.canvasEdit.canaisVenda,
         segmentosMercado: this.$store.state.editCanvas.canvasEdit.segmentosMercado,
         estruturaCustos: this.$store.state.editCanvas.canvasEdit.estruturaCustos,
-        fontesRenda: this.$store.state.editCanvas.canvasEdit.fontesRenda
+        fontesRenda: this.$store.state.editCanvas.canvasEdit.fontesRenda,
+        autor: this.$store.state.editCanvas.canvasEdit.autor
       },
       SheetFooter: {
         functional: true,
@@ -231,24 +236,7 @@ export default {
           }, children)
         }
       },
-      btnImprimir: true,
-      submitted: false,
-      cssText: `
-      .printing {
-        font-family: 'Open Sans', sans-serif;
-        width: 900px;
-        text-align: center;
-      }
-      .printing ul {
-        padding-left: 3em;
-        text-align: left;
-      }
-      .logo-prefeitura{
-        width: 80px;
-        margin: auto;
-        display: block;
-      }
-    `
+      submitted: false
     }
   },
   computed: {
@@ -256,50 +244,19 @@ export default {
       editCanvas: state => state.editCanvas.canvasEdit
     })
   },
-  mounted () {
-    const { Printd } = window.printd
-    this.d = new Printd()
-    const { contentWindow } = this.d.getIFrame()
-    contentWindow.addEventListener('beforeprint', () =>
-      console.log('before print event!')
-    )
-    contentWindow.addEventListener('afterprint', () =>
-      console.log('after print event!')
-    )
-  },
   methods: {
-    imprimir () {
-      document.getElementById('botaoImprimir').remove()
-      document.getElementById('botaoVoltar').remove()
-      this.d.print(this.$el, [this.cssText])
-      this.$router.push('/meusProjetos')
-    },
     voltar () {
-      this.$router.push('/meusProjetos')
+      this.$router.push('/projetosCompartilhados')
     }
   }
 }
 </script>
 <style >
-.printing {
-  font-family: 'Open Sans', sans-serif;
-  max-width: 1100px;
-  border: solid 1px #ccc;
-  text-align: center;
-  margin: 2em auto;
-}
-.printing ul {
-  padding-left: 3em;
-  text-align: left;
-}
 .logo-prefeitura {
   padding-top: 15px;
   width: 80px;
   margin: auto;
   display: block;
-}
-#botaoImprimir{
-  padding: 15px;
 }
 .theme--light.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined){
 background-color:#212121
@@ -311,4 +268,11 @@ sheet-footer {
 hr{
   font-weight: bold
 }
+.logo-prefeitura {
+  padding-top: 15px;
+  width: 100px;
+  margin: auto;
+  display: block;
+}
+
 </style>

@@ -59,7 +59,7 @@
             </template>
             <template v-slot:item.share="{ item }">
               <div class="text-center">
-                <div v-if="canva.compartilharCanvas == false">
+                <div v-if="item.compartilharCanvas == false">
                   <v-btn
                     text
                     icon
@@ -69,7 +69,7 @@
                     <v-icon>mdi-share-variant</v-icon>
                   </v-btn>
                 </div>
-                <div v-if="canva.compartilharCanvas == true">
+                <div v-if="item.compartilharCanvas == true">
                   <v-btn
                     text
                     icon

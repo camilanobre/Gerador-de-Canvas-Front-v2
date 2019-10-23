@@ -8,6 +8,9 @@ export default {
   getCanvasView ({ commit }, canvas) {
     commit('getCanvasView', canvas)
   },
+  getCanvasViewPublico ({ commit }, canvas) {
+    commit('getCanvasViewPublico', canvas)
+  },
   update ({ dispatch, commit }, canvas) {
     commit('registerRequest', canvas)
     console.log('EDITANDO  REGISTER CANVAS => ' + canvas)

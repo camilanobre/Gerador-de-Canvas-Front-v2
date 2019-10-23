@@ -15,7 +15,6 @@
             Voltar
           </v-btn>
         </div>
-        {{ canvas }}
         <h2 style="text-align:center"> Projeto {{ canvas.nomeProjeto }}</h2>
         <hr >
         <v-row

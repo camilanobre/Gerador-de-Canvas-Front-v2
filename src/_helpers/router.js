@@ -29,7 +29,7 @@ export const router = new Router({
     { path: '/projetosCompartilhados', name: 'Projetos Compartilhados', component: ProjetosCompartilhadosPage },
     { path: '/detalharProjetosPublicos', name: 'Detalhar Projeto', component: DetalharProjetosPublicosPage },
     { path: '/sobre', name: 'Sobre nós', component: SobrePage },
-    { path: '/projetosPublicos,', component: ProjetosPublicosPage },
+    { path: '/projetosPublicos,', name: 'Detalhar Projeto', component: ProjetosPublicosPage },
     { path: '/landingPage', component: LandingPage }
   ]
 })

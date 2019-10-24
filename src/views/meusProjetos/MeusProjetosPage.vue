@@ -20,7 +20,6 @@
             <v-icon left>mdi-plus-circle</v-icon>
             Novo projeto
           </v-btn>
-          {{ canvas }}
           <v-card-title>
             <v-text-field
               v-model="search"

@@ -13,7 +13,6 @@
           color="deep-purple"
           title="Canvas Públicos"
         >
-          {{ canvas }}
           <v-card-title>
             <v-text-field
               v-model="search"

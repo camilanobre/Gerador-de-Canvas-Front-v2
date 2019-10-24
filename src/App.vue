@@ -1,11 +1,11 @@
 <template>
   <v-app>
     <core-toolbar
-      v-if="$route.path!=='/login' && $route.path!=='/404'
-      && $route.path!=='/landingPage' && $route.path!=='/projetosPublicos'"/>
+      v-if="$route.path!=='/login' && $route.path!=='/404'&& $route.path!=='/landingPage'
+      && $route.path!=='/publicos' && $route.path!=='/detalhe'"/>
     <core-drawer
-      v-if="$route.path!=='/login' && $route.path!=='/404'
-      && $route.path!=='/landingPage' && $route.path!=='/projetosPublicos'"/>
+      v-if="$route.path!=='/login' && $route.path!=='/404' && $route.path!=='/landingPage'
+      && $route.path!=='/publicos' && $route.path!=='/detalhe'"/>
     <core-view />
   </v-app>
 </template>

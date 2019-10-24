@@ -9,7 +9,8 @@
         <v-spacer/>
         <v-btn
           icon
-          href="projetosPublicos"> Projetos Compartilhados
+          href="/publicos"
+        > Projetos Compartilhados
           <v-icon>mdi-share-variant</v-icon>
         </v-btn>
         <div class="flex-grow-1"/>

@@ -11,6 +11,9 @@ export default {
   getCanvasViewPublico ({ commit }, canvas) {
     commit('getCanvasViewPublico', canvas)
   },
+  getCanvasViewPublicoSemUsuario ({ commit }, canvas) {
+    commit('getCanvasViewPublicoSemUsuario', canvas)
+  },
   update ({ dispatch, commit }, canvas) {
     commit('registerRequest', canvas)
     console.log('EDITANDO  REGISTER CANVAS => ' + canvas)

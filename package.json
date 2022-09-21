@@ -16,7 +16,7 @@
     "vue": "^2.5.17",
     "vue-chartist": "^2.1.2",
     "vue-meta": "^1.5.2",
-    "vuetify": "^2.0.17"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@mdi/font": "^2.5.94",
